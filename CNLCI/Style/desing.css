@@ -18,7 +18,7 @@ select {
 
 
 body {
-    background: linear-gradient(to bottom, #4aaa6f, #ffffff);
+    background: linear-gradient(to bottom, #04372d, #ffffff);
     justify-content: center;
     align-items: center;
 }
@@ -31,6 +31,10 @@ body {
     
 }
 
+.nav-link {
+    color: blue; /* Cambia el color a tu preferencia */
+    /* Otros estilos, como font-size, font-weight, etc., si es necesario */
+}
 
 /*------------------------------------------------------------------------------------------*/
 
