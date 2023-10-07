@@ -1,0 +1,41 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-link"><ion-icon name="reader-outline"></ion-icon></li>
+            <li>@Html.ActionLink("Justificante", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="nav-link"><ion-icon name="id-card-outline"></ion-icon></li>
+            <li>@Html.ActionLink("Pase de salida", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>
+                <div class="nav-item dropdown " style="position:relative">
+                    <a class="nav-link dropdown-toggle" href="#" id="reportes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <ion-icon name="podium-outline"></ion-icon>  Reportes
+
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="reportes">
+                        <a class="dropdown-item" href="@Url.Action("PorAlumno", "Home")"><ion-icon name="person-circle-outline"></ion-icon>  Reporte por alumno</a>
+                        <a class="dropdown-item" href="@Url.Action("PorGrupo", "Home")"><ion-icon name="people-circle-outline"></ion-icon>  Reporte por grupo</a>
+                        <a class="dropdown-item" href="@Url.Action("PorCarrera", "Home")"><ion-icon name="book-outline"></ion-icon>  Reporte por carrera</a>
+                        <a class="dropdown-item" href="@Url.Action("PorSemestre", "Home")"><ion-icon name="calendar-outline"></ion-icon>  Reporte por semestre</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-link"><ion-icon name="timer-outline"></ion-icon></li>
+            <li>@Html.ActionLink("Historial", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+                <li>
+                    <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="usuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @User.Identity.Name
+
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="usuario">
+                            <a class="dropdown-item" href="@Url.Action("SignOut", "Account")"><ion-icon name="log-out-outline"></ion-icon>  Cerrar sesión</a>
+                        </div>
+                    </div>
+                </li>
+        </ul>
+    </text>
+}

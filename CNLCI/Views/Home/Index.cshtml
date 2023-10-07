@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="section">
+        <div class="container Marco">
+            <div style="padding: 20px;">
+                <center>
+                    <h1 class="title">Nuevo justificante</h1>
+                </center>
+            </div>
+            <form>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Alumno</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <input class="input" type="text" placeholder="Escribe la matrícula">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <button class="button is-primary">Buscar</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="Marco">
+                        <div class="columns ">
+                            <div class="column is-half">
+                                <div class="field">
+
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Nombre(s)" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-quarter">
+                                <div class="field">
+
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Apellido paterno" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-quarter">
+                                <div class="field">
+
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Apellido materno" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column is-one-quarter">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Matrícula" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-2-4">
+                                <div class="field">
+                                    <div class="control">
+                                        <div class="select">
+                                            <select>
+                                                <option value="pendiente">
+                                                    Se llenará con una consulta sdovsiduvbsdbvdbkjsbkjbkjsbkjsdbvkjsdvb
+
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-quarter">
+                                <div class="field">
+                                    <div class="control">
+
+                                        <div class="select">
+                                            <select>
+                                                <option value="pendinte">
+                                                    Se llenará con una consulta
+                                                    lodjfhsdbvssdkvsdjvdbv
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="Marco">
+                        <div class="columns">
+                            <div class="column is-half">
+                                <div class="field">
+                                    <div class="control">
+
+                                        <div class="select">
+                                            <select>
+                                                <option value="pendinte">
+                                                    Se llenará con una consulta
+                                                    lodjfhsdbvssdkvsdjvdbv
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="Marco">
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal is-flex is-align-items-center">
+                                <label class="label">Fecha</label>
+                            </div>
+                            <div class="field-body has-addons-centered">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="control">
+                                            <!-- Botón de radio "Única" -->
+                                            <label class="radio">
+                                                <input type="radio" name="fecha" value="unica" onclick="habilitarFecha()" checked>
+                                                Única
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control">
+                                            <!-- Campo de fecha -->
+                                            <input class="input" type="date" id="fecha" name="fecha">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="control">
+                                            <!-- Botón de radio "Extendida" -->
+                                            <label class="radio">
+                                                <input type="radio" name="fecha" value="extendida" onclick="habilitarExtendida()">
+                                                Extendida
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal" id="extendidaFields">
+                                        <div class="field">
+                                            <div class="control">
+                                                <label class="label">Del día</label>
+                                                <!-- Campo de fecha "Del día" con formato yyyy/mm/dd -->
+                                                <input class="input" type="date" id="fechaDelDia" name="fechaDelDia" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="control">
+                                                <label class="label">Al día</label>
+                                                <!-- Campo de fecha "Al día" con formato yyyy/mm/dd -->
+                                                <input class="input" type="date" id="fechaAlDia" name="fechaAlDia" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <button class="button is-danger">Limpiar</button>
+                    </p>
+                    <p class="control">
+                        <button class="button is-primary">Generar</button>
+                    </p>
+                </div>
+            </form>
+            </center>
+        </div>
+    </section>
+
+</main>
+<script>
+    // Deshabilitar el bloque de "Extendida" al cargar la página
+    document.getElementById('extendidaFields').style.display = 'block';
+    document.getElementById('fechaDelDia').disabled = true;
+    document.getElementById('fechaAlDia').disabled = true;
+
+    function habilitarFecha() {
+        document.getElementById('fecha').disabled = false;
+        document.getElementById('extendidaFields').style.display = 'block';
+        document.getElementById('fechaDelDia').disabled = true;
+        document.getElementById('fechaAlDia').disabled = true;
+    }
+
+    function habilitarExtendida() {
+        document.getElementById('fecha').disabled = true;
+        document.getElementById('extendidaFields').style.display = 'block';
+        document.getElementById('fechaDelDia').disabled = false;
+        document.getElementById('fechaAlDia').disabled = false;
+    }
+</script>
