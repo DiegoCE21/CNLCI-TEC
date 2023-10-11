@@ -1,6 +1,4 @@
-﻿
-
-.Marco {
+﻿.Marco {
     border: 1px solid #409e6f;
     padding: 20px;
     border-radius: 10px;
@@ -16,11 +14,12 @@ select {
     flex: 2;
 }
 
-
 body {
-    background: linear-gradient(to bottom, #04372d, #ffffff);
+    background-image: linear-gradient(to bottom, #04372d, #ffffff);
     justify-content: center;
     align-items: center;
+    
+
 }
 
 .navbar {
@@ -28,11 +27,7 @@ body {
     width: 100%; /* Ocupa el 100% del ancho de la pantalla */
     top: 0; /* Establece la posición en la parte superior de la pantalla */
     z-index: 1000; /* Asegura que la barra de navegación esté en la parte superior de los demás elementos */
-    
 }
-
-
-
 
 /*------------------------------------------------------------------------------------------*/
 
