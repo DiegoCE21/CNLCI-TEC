@@ -18,8 +18,6 @@ body {
     background-image: linear-gradient(to bottom, #04372d, #ffffff);
     justify-content: center;
     align-items: center;
-    
-
 }
 
 .navbar {
@@ -27,6 +25,7 @@ body {
     width: 100%; /* Ocupa el 100% del ancho de la pantalla */
     top: 0; /* Establece la posición en la parte superior de la pantalla */
     z-index: 1000; /* Asegura que la barra de navegación esté en la parte superior de los demás elementos */
+    height: 10%;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -42,8 +41,8 @@ body {
 .custom-box {
     width: 70%; /* Cambia el ancho del cuadro según tus preferencias */
     padding: 10px; /* Ajusta el espaciado interno */
-
 }
+
 .custom-image {
     width: 100%; /* Ancho al 100% del contenedor */
     height: auto; /* Altura automática para mantener la proporción */
@@ -51,17 +50,17 @@ body {
 
 /* Estilo específico para los botones generados por ActionLink */
 .button-link {
-    background-color:#166342;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:white;
-    font-display:revert;
+    background-color: #166342;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-display: revert;
     font-weight: bold;
     text-decoration: none; /* Anula la subrayado */
 }
 
     /* Otros estilos para los botones si es necesario */
     .button-link:hover {
-        color:white;
+        color: white;
         background-color: #007bff;
         text-decoration: none; /* Cambia el color de fondo al pasar el mouse */
     }

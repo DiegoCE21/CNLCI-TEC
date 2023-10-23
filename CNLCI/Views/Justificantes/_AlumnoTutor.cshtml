@@ -1,0 +1,168 @@
+﻿@model IEnumerable<CNLCI.Models.ViewModel.MJ>
+
+@foreach (var datos in Model)
+{
+    <div class="container">
+        <div class="Marco">
+            <div class="columns ">
+                <div class="column is-half">
+                    <div class="field">
+
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-quarter">
+                    <div class="field">
+
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Apellido paterno" value="@datos.Primer_apellido" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-quarter">
+                    <div class="field">
+
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Apellido materno" value="@datos.Segundo_apellido" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Matrícula" value="@datos.Matricula" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-2-4">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select" style=" width: 100%">
+                                <select>
+
+                                    <option value="" style="display: none;">Seleccionar carrera</option>
+                                    <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
+                                    <option value="FAMILIAR">Familiar</option>
+                                    <option value="MÉDICO">Médico</option>
+                                    <option value="PERSONAL">Personal</option>
+                                    <option value="VIAJE EDUCATIVO">Viaje educativo</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-one-quarter">
+                    <div class="field">
+                        <div class="control">
+
+                            <div class="select" style=" width: 100%">
+                                <select>
+
+                                    <option value="" style="display: none;">Seleccionar grupo </option>
+                                    <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
+                                    <option value="FAMILIAR">Familiar</option>
+                                    <option value="MÉDICO">Médico</option>
+                                    <option value="PERSONAL">Personal</option>
+                                    <option value="VIAJE EDUCATIVO">Viaje educativo</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Motivo")
+    <div class="container">
+        <div class="Marco">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal is-flex is-align-items-center">
+                    <label class="label">Autorizó</label>
+                </div>
+                <div class="field-body has-addons-centered">
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+
+                                <label class="radio">
+                                    <input type="radio" name="autorizo" value="unica" onclick="habilitarRegistrado()" checked>
+                                    <b>Tutor</b>
+
+
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" id="autorizo" name="autorizo" disabled placeholder="Nombre del tutor" value="@datos.Tutor_Nombre" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+
+                                <label class="radio">
+                                    <input type="radio" name="autorizo" value="extendida" onclick="habilitarOtro()">
+                                    <b>Externo</b>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal" id="otroFields">
+
+                            <div class="field">
+
+                                <div class="control">
+
+                                    <div class="select" style=" width: 100%" id="parentezco" name="parentezco" disabled>
+                                        <select>
+
+                                            <option value="" style="display: none;">Seleccionar parentezco </option>
+                                            <option value="PADRE">Padre</option>
+                                            <option value="MADRE">Madre</option>
+                                            <option value="ABUELO(A)">Abuelo(a)</option>
+                                            <option value="TIO(A)">Tio(a)</option>
+                                            <option value="SIN PARENTEZCO">Sin parentezco</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" type="text" id="nombreA" name="nombreA" disabled placeholder="Nombre completo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+            <button type="reset" class="button is-danger">Limpiar</button>
+        </p>
+        <p class="control">
+            <button type="submit" class="button is-primary">Generar</button>
+        </p>
+    </div>
+
+}
+
+
+
+

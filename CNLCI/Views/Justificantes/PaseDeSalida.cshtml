@@ -3,209 +3,42 @@
     ViewBag.Title = "View";
 }
 
-<main style="padding-top:0%;">
-    <section class="section">
-        <div class="container Marco">
-            <div style="padding: 20px;">
-                <center>
-                    <h1 class="title">Nuevo pase de salida</h1>
-                </center>
-            </div>
-            <form>
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label">Alumno</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <p class="control is-expanded">
-                                <input class="input" type="text" id="txtmatricula" placeholder="Escribe la matrícula" maxlength="10">
-                            </p>
-                        </div>
-                        <div class="field">
-                            <p class="control">
-                                <button class="button is-primary">Buscar</button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="Marco">
-                        <div class="columns ">
-                            <div class="column is-half">
-                                <div class="field">
+<main>
 
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Nombre(s)" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-one-quarter">
-                                <div class="field">
-
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Apellido paterno" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-one-quarter">
-                                <div class="field">
-
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Apellido materno" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="columns">
-                            <div class="column is-one-quarter">
-                                <div class="field">
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Matrícula" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-2-4">
-                                <div class="field">
-                                    <div class="control">
-                                        <div class="select">
-                                            <select>
-                                                <option value="pendiente">
-                                                    Se llenará con una consulta sdovsiduvbsdbvdbkjsbkjbkjsbkjsdbvkjsdvb
-
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-one-quarter">
-                                <div class="field">
-                                    <div class="control">
-
-                                        <div class="select">
-                                            <select>
-                                                <option value="pendinte">
-                                                    Se llenará con una consulta
-                                                    lodjfhsdbvssdkvsdjvdbv
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="Marco">
-                        <div class="columns">
-                            <div class="column is-2-4">
-                                <div class="field">
-                                    <div class="control">
-                                        <div class="select">
-                                            <select>
-                                                <option value="pendiente">
-                                                    Se llenará con una consulta sdovsiduvbsdbvdbkjsbkjbkjsbkjsdbvkjsdvb
-
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-2-4">
-                                <div class="field">
-                                    <div class="control">
-                                        <div class="select">
-                                            <select>
-                                                <option value="pendiente">
-                                                    Se llenará con una consulta sdovsiduvbsdbvdbkjsbkjbkjsbkjsdbvkjsdvb
-
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="Marco">
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal is-flex is-align-items-center">
-                                <label class="label">Autorizó</label>
-                            </div>
-                            <div class="field-body has-addons-centered">
-                                <div class="column">
-                                    <div class="field">
-                                        <div class="control">
-                                            <!-- Botón de radio "Única" -->
-                                            <label class="radio">
-                                                <input type="radio" name="autorizo" value="unica" onclick="habilitarRegistrado()" checked>
-                                                <b>Tutor</b>
-
-
-                                            </label>
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="field">
-                                        <div class="control">
-                                           <input class="input" type="text" id="autorizo" name="autorizo" disabled placeholder="Nombre del tutor"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="field">
-                                        <div class="control">
-                                            <!-- Botón de radio "Extendida" -->
-                                            <label class="radio">
-                                                <input type="radio" name="autorizo" value="extendida" onclick="habilitarOtro()">
-                                                <b>Externo</b>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="field is-horizontal" id="otroFields">
-
-                                        <div class="field">
-
-                                            <div class="control">
-                                                <div class="select">
-                                                    <select id="parentezco" name="parentezco" disabled>
-                                                        <option value="pendiente">
-                                                            Se llenará con una consulta sdovsiduvbsdbvdbkjsbkjbkjsbkjsdbvkjsdvb
-
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div class="field">
-                                            <div class="control">
-                                                <input class="input" type="text" id="nombreA" name="nombreA" disabled placeholder="Nombre completo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="field is-grouped is-grouped-centered">
-                    <p class="control">
-                        <button type="reset" class="button is-danger">Limpiar</button>
-                    </p>
-                    <p class="control">
-                        <button type="submit" class="button is-primary">Generar</button>
-                    </p>
-                </div>
-            </form>
-
+    <div class="container Marco">
+        <div>
+            <center>
+                <h1 class="title">Nuevo pase de salida</h1>
+            </center>
         </div>
-    </section>
+        @using (Html.BeginForm("BuscarP", "Justificantes", FormMethod.Post))
+        {
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Alumno</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" name="matricula" placeholder="Escribe la matrícula" maxlength="11" id="txtmatricula">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button type="submit" class="button button-link is-primary">Buscar</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+        <form class="este">
+
+            @Html.Partial("_AlumnoTutor")
+
+        </form>
+
+    </div>
+
 
 </main>
 
@@ -216,14 +49,14 @@
     document.getElementById('nombreA').disabled = true;
 
     function habilitarRegistrado() {
-     //   document.getElementById('autorizo').disabled = true;
+        //   document.getElementById('autorizo').disabled = true;
         document.getElementById('otroFields').style.display = 'block';
         document.getElementById('parentezco').disabled = true;
         document.getElementById('nombreA').disabled = true;
     }
 
     function habilitarOtro() {
-      //  document.getElementById('autorizo').disabled = true;
+        //  document.getElementById('autorizo').disabled = true;
         document.getElementById('otroFields').style.display = 'block';
         document.getElementById('parentezco').disabled = false;
         document.getElementById('nombreA').disabled = false;

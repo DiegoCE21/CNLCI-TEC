@@ -109,3 +109,7 @@ D:\CNLCI\CNLCI\obj\Debug\CNLCI.csproj.CoreCompileInputs.cache
 D:\CNLCI\CNLCI\obj\Debug\CNLCI.csproj.CopyComplete
 D:\CNLCI\CNLCI\obj\Debug\CNLCI.dll
 D:\CNLCI\CNLCI\obj\Debug\CNLCI.pdb
+D:\CNLCI\CNLCI\bin\EntityFramework.dll
+D:\CNLCI\CNLCI\bin\EntityFramework.SqlServer.dll
+D:\CNLCI\CNLCI\bin\EntityFramework.xml
+D:\CNLCI\CNLCI\bin\EntityFramework.SqlServer.xml

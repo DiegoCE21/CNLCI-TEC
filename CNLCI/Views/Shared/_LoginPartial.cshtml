@@ -3,43 +3,58 @@
     <text>
 
         <ul class="navbar-nav flex-grow-1 lol">
-            <li class="nav-link" style="color:white" ><ion-icon name="reader-outline"></ion-icon></li>
-            <li >@Html.ActionLink("Justificante", "Justificante", "Justificantes", new { area = "" }, new { @class = "nav-link lol" })</li>
-            <li class="nav-link" style="color:white;"><ion-icon name="id-card-outline"></ion-icon></li>
-            <li >@Html.ActionLink("Pase de salida", "PaseDeSalida", "Justificantes", new { area = "" }, new { @class = "nav-link lol" })</li>
-            <li class="nav-link" style="color:white"> <ion-icon name="podium-outline"></ion-icon></li>
-            <li >
-                <div class="nav-item dropdown " style="position:relative">
-                    <a class="nav-link dropdown-toggle lol"  href="#" id="reportes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Reportes
+            <li>
+                <div class="container" style="color:white">
+                    <ion-icon name="reader-outline"></ion-icon>
+                    @Html.ActionLink("Justificante", "Justificante", "Justificantes", new { area = "" }, new { @class = "nav-link lol" })
+                </div>
+            </li>
+            <li>
+                <div class="container" style="color:white">
+                    <ion-icon name="id-card-outline"></ion-icon>
+                    @Html.ActionLink("Pase de salida", "PaseDeSalida", "Justificantes", new { area = "" }, new { @class = "nav-link lol" })
+                </div>
+            </li>
+            <li>
+                <div class="container" style="color:white">
+                    <ion-icon name="podium-outline"></ion-icon>
+                    <div class="nav-item dropdown " style="position:relative">
+                        <a class="nav-link dropdown-toggle lol" href="#" id="reportes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Reportes
 
-                    </a>
-                    <div class="dropdown-menu " aria-labelledby="reportes">
-                        <a class="dropdown-item" href="@Url.Action("PorAlumno", "Reportes")" ><ion-icon name="person-circle-outline"></ion-icon>  Reporte por alumno</a>
-                        <a class="dropdown-item" href="@Url.Action("PorGrupo", "Reportes")"><ion-icon name="people-circle-outline"></ion-icon>  Reporte por grupo</a>
-                        <a class="dropdown-item" href="@Url.Action("PorCarrera", "Reportes")"><ion-icon name="book-outline"></ion-icon>  Reporte por carrera</a>
-                        <a class="dropdown-item" href="@Url.Action("PorSemestre", "Reportes")"><ion-icon name="calendar-outline"></ion-icon>  Reporte por semestre</a>
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="reportes">
+                            <a class="dropdown-item" href="@Url.Action("PorAlumno", "Reportes")"><ion-icon name="person-circle-outline"></ion-icon>  Reporte por alumno</a>
+                            <a class="dropdown-item" href="@Url.Action("PorGrupo", "Reportes")"><ion-icon name="people-circle-outline"></ion-icon>  Reporte por grupo</a>
+                            <a class="dropdown-item" href="@Url.Action("PorCarrera", "Reportes")"><ion-icon name="book-outline"></ion-icon>  Reporte por carrera</a>
+                            <a class="dropdown-item" href="@Url.Action("PorSemestre", "Reportes")"><ion-icon name="calendar-outline"></ion-icon>  Reporte por semestre</a>
+                        </div>
                     </div>
                 </div>
             </li>
-            <li class="nav-link" style="color:white;"><ion-icon name="timer-outline"></ion-icon></li>
-            <li>@Html.ActionLink("Historial", "Index", "Home", new { area = "" }, new { @class = " nav-link lol" })</li>
+            <li>
+                <div class="container" style="color:white">
+                    <ion-icon name="timer-outline"></ion-icon>
+                    @Html.ActionLink("Historial", "Index", "Home", new { area = "" }, new { @class = " nav-link lol" })
+                </div>
+            </li>
         </ul>
 
         <ul class="navbar-nav navbar-right lol">
-                <li >
-                    <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle lol" href="#" id="usuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @User.Identity.Name
+            <li>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lol" href="#" id="usuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @User.Identity.Name
 
-                            </a>
-                        <div class="dropdown-menu" aria-labelledby="usuario">
-                            <a class="dropdown-item" href="@Url.Action("SignOut", "Account")"><ion-icon name="log-out-outline"></ion-icon>  Cerrar sesión</a>
-                        </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="usuario">
+                        <a class="dropdown-item" href="@Url.Action("SignOut", "Account")"><ion-icon name="log-out-outline"></ion-icon>  Cerrar sesión</a>
                     </div>
-                </li>
+                </div>
+            </li>
         </ul>
     </text>
 }
+
 
 
