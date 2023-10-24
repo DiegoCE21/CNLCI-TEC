@@ -51,7 +51,6 @@
     <Property Name="Plan_de_Estudios" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Motivo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Comprobante" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Fecha" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Medico">

@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="825c112fa7fa4c339193b8ba5fa702b6" Name="Diagram1">
+      <Diagram DiagramId="f604cd27fc234830bce23311f25cbe3d" Name="Diagram1">
         <EntityTypeShape EntityType="CONALEPcheckinModel.Alumno" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Carrera" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Grupo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Medico" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Tutor" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Ingreso" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Justificante" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Pase_de_salida" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Justificante" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Medico" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Tutor" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Ingreso" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Pase_de_salida" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="CONALEPcheckinModel.FK__Grupo__Plan_de_E__403A8C7D" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

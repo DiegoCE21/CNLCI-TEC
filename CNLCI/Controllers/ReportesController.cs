@@ -4,6 +4,11 @@ namespace CNLCI.Controllers
 {
     public class ReportesController : Controller
     {
+
+        public ActionResult PorAlumno() { return View(); }
+        public ActionResult PorGrupo() { return View(); }
+        public ActionResult PorCarrera() { return View(); }
+        public ActionResult PorSemestre() { return View(); }
         // GET: Reportes
         public ActionResult Index()
         {

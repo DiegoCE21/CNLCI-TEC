@@ -88,7 +88,6 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     <Property Name="Plan de Estudios" Type="varchar" MaxLength="70" Nullable="false" />
     <Property Name="Grupo Referente" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Motivo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Comprobante" Type="varbinary(max)" />
     <Property Name="Fecha" Type="date" />
   </EntityType>
   <EntityType Name="Medico">

@@ -14,7 +14,7 @@
             </center>
         </div>
 
-        @using (Html.BeginForm("Buscar", "Justificantes", FormMethod.Post))
+        @using (Html.BeginForm("Buscar", "Justificantes", FormMethod.Post, new { onsubmit = "return validarMatricula();"}))
         {
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -35,12 +35,14 @@
             </div>
         }
 
-        <form class="este">
-
+        @using (Html.BeginForm("GenerarJ", "Justificantes", FormMethod.Post, new { @class = "este", enctype = "multipart/form-data" }))
+        {
             @Html.Partial("_Alumno")
 
-           
-        </form>
+
+        }
+
+
 
     </div>
 
@@ -65,4 +67,29 @@
         document.getElementById('fechaDelDia').disabled = false;
         document.getElementById('fechaAlDia').disabled = false;
     }
+
+    function validarMatricula() {
+        var matricula = document.getElementById("txtmatricula").value;
+        if (matricula.trim() === "") {
+            alert("Debes ingresar la matrícula del alumno a buscar.");
+            return false;
+        }
+        return true;
+    }
+
+    // Obtén el elemento de entrada de archivo y el elemento del nombre del archivo
+ //   const fileInput = document.getElementById("fileToUpload");
+   // const fileNameElement = document.getElementById("file-name");
+
+    // Agrega un evento de cambio al campo de entrada de archivo
+   // fileInput.addEventListener("change", function () {
+        // Verifica si se seleccionó un archivo
+     //   if (fileInput.files.length > 0) {
+            // Actualiza el elemento del nombre del archivo con el nombre del archivo seleccionado
+       //     fileNameElement.textContent = fileInput.files[0].name;
+        //} else {
+            // Si no se selecciona ningún archivo, muestra el mensaje predeterminado
+          //  fileNameElement.textContent = "No se ha seleccionado un archivo";
+        //}
+    //});
 </script>

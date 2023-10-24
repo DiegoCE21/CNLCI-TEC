@@ -1,10 +1,11 @@
-﻿using System;
-using System.Configuration;
-using System.Security.Claims;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
+using System;
+using System.Configuration;
+using System.Security.Claims;
 
 namespace CNLCI
 {
@@ -21,6 +22,16 @@ namespace CNLCI
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                // Expira después de 60 minutos de inactividad
+                ExpireTimeSpan = TimeSpan.FromMinutes(1),
+                // Renueva la cookie en cada solicitud
+                SlidingExpiration = true,
+                // Redirige al inicio de sesión si no está autenticado
+                LoginPath = new PathString("/Login/Login")
+            });
 
             app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
@@ -39,7 +50,7 @@ namespace CNLCI
                         }
                     }
                 });
-                 
+
         }
 
         private static string EnsureTrailingSlash(string value)

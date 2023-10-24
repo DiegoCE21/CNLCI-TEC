@@ -10,7 +10,7 @@
                     <div class="field">
 
                         <div class="control">
-                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly />
+                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly name="Nombre" />
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <div class="field">
 
                         <div class="control">
-                            <input class="input" type="text" placeholder="Apellido paterno" value="@datos.Primer_apellido" readonly>
+                            <input class="input" type="text" placeholder="Apellido paterno" value="@datos.Primer_apellido" readonly name="Primer_apellido">
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class="field">
 
                         <div class="control">
-                            <input class="input" type="text" placeholder="Apellido materno" value="@datos.Segundo_apellido" readonly>
+                            <input class="input" type="text" placeholder="Apellido materno" value="@datos.Segundo_apellido" readonly name="Segundo_apellido">
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="column is-one-quarter">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Matrícula" value="@datos.Matricula" readonly>
+                            <input class="input" type="text" placeholder="Matrícula" value="@datos.Matricula" readonly name="Matricula">
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="field">
                         <div class="control">
                             <div class="select" style=" width: 100%">
-                                <select>
+                                <select name="Carrera">
 
                                     <option value="" style="display: none;">Seleccionar carrera</option>
                                     <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
@@ -64,7 +64,7 @@
                         <div class="control">
 
                             <div class="select" style=" width: 100%">
-                                <select>
+                                <select name="Grupo">
 
                                     <option value="" style="display: none;">Seleccionar grupo </option>
                                     <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
@@ -102,7 +102,7 @@
                         <div class="field">
                             <div class="control">
                                 <!-- Campo de fecha -->
-                                <input class="input" type="date" id="fecha" name="fecha">
+                                <input class="input" type="date" id="fecha" name="fecha1">
                             </div>
                         </div>
                     </div>
@@ -137,6 +137,34 @@
             </div>
         </div>
     </div>
+
+
+    <div class="container" style="text-align: left;">
+        <div class="Marco">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal is-flex is-align-items-center">
+                    <label class="label">Seleccionar archivo</label>
+                </div>
+                <div class="field-body has-addons-centered">
+                    <div class="column">
+                        <div class="file is-primary has-name">
+                            <label class="file-label">
+                                <input type="file" name="archivo" id="archivo">
+
+                               
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     <div class="field is-grouped is-grouped-centered">
         <p class="control">
             <button type="reset" class="button is-danger">Limpiar</button>

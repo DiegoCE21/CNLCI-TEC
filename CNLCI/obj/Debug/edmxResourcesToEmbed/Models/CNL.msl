@@ -52,7 +52,6 @@
           <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
           <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
           <ScalarProperty Name="Motivo" ColumnName="Motivo" />
-          <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
         </MappingFragment>
       </EntityTypeMapping>
