@@ -23,6 +23,9 @@ namespace CNLCI.Models
         public string Grupo_Referente { get; set; }
         public string Motivo { get; set; }
         public byte[] Comprobante { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<System.DateTime> Fecha_del_dia { get; set; }
+        public Nullable<System.DateTime> Fecha_al_dia { get; set; }
+        public Nullable<int> Valor { get; set; }
+        public bool Activo { get; set; }
     }
 }

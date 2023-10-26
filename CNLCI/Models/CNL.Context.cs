@@ -28,6 +28,7 @@ namespace CNLCI.Models
         }
     
         public virtual DbSet<Alumno> Alumno { get; set; }
+        public virtual DbSet<bitacora> bitacora { get; set; }
         public virtual DbSet<Carrera> Carrera { get; set; }
         public virtual DbSet<Grupo> Grupo { get; set; }
         public virtual DbSet<Justificante> Justificante { get; set; }

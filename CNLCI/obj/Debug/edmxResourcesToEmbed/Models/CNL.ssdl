@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CONALEPcheckinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="CNLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Alumno">
     <Key>
       <PropertyRef Name="Matricula" />
@@ -9,7 +9,7 @@
     <Property Name="Primer apellido" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Segundo apellido" Type="varchar" MaxLength="20" />
     <Property Name="Email institucional" Type="varchar" MaxLength="50" />
-    <Property Name="CURP" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CURP" Type="varchar" MaxLength="20" />
     <Property Name="Dom Colonia" Type="varchar" MaxLength="60" />
     <Property Name="Cd./Localidad" Type="varchar" MaxLength="50" />
     <Property Name="Dom CP" Type="varchar" MaxLength="8" />
@@ -22,6 +22,17 @@
     <Property Name="Teléfono" Type="varchar" MaxLength="14" />
     <Property Name="E-mail" Type="varchar" MaxLength="60" />
     <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="bitacora">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="realizada_por" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="tabla" Type="varchar" MaxLength="20" />
+    <Property Name="folio" Type="int" />
   </EntityType>
   <EntityType Name="Carrera">
     <Key>
@@ -88,7 +99,11 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     <Property Name="Plan de Estudios" Type="varchar" MaxLength="70" Nullable="false" />
     <Property Name="Grupo Referente" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Motivo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Fecha" Type="date" />
+    <Property Name="Comprobante" Type="varbinary(max)" />
+    <Property Name="Fecha del dia" Type="date" />
+    <Property Name="Fecha al dia" Type="date" />
+    <Property Name="Valor" Type="int" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Medico">
     <Key>
@@ -127,6 +142,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
     <Property Name="Medio de Autorizacion" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Comprobante" Type="varbinary(max)" />
     <Property Name="Fecha" Type="date" />
+    <Property Name="Activo" Type="bit" />
   </EntityType>
   <EntityType Name="Tutor">
     <Key>
@@ -162,8 +178,9 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
   <Function Name="importar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="RutaArchivo" Type="nvarchar(max)" Mode="In" />
   </Function>
-  <EntityContainer Name="CONALEPcheckinModelStoreContainer">
+  <EntityContainer Name="CNLModelStoreContainer">
     <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bitacora" EntityType="Self.bitacora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Justificante" EntityType="Self.Justificante" Schema="dbo" store:Type="Tables" />
@@ -214,7 +231,8 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
     [Pase de salida].[Autoriza] AS [Autoriza], 
     [Pase de salida].[Medio de Autorizacion] AS [Medio de Autorizacion], 
     [Pase de salida].[Comprobante] AS [Comprobante], 
-    [Pase de salida].[Fecha] AS [Fecha]
+    [Pase de salida].[Fecha] AS [Fecha], 
+    [Pase de salida].[Activo] AS [Activo]
     FROM [dbo].[Pase de salida] AS [Pase de salida]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__Grupo__Plan de E__403A8C7D" Association="Self.FK__Grupo__Plan de E__403A8C7D">

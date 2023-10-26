@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CONALEPcheckinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CNLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alumno">
           <Key>
             <PropertyRef Name="Matricula" />
@@ -14,7 +14,7 @@
           <Property Name="Primer apellido" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Segundo apellido" Type="varchar" MaxLength="20" />
           <Property Name="Email institucional" Type="varchar" MaxLength="50" />
-          <Property Name="CURP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CURP" Type="varchar" MaxLength="20" />
           <Property Name="Dom Colonia" Type="varchar" MaxLength="60" />
           <Property Name="Cd./Localidad" Type="varchar" MaxLength="50" />
           <Property Name="Dom CP" Type="varchar" MaxLength="8" />
@@ -27,6 +27,17 @@
           <Property Name="Teléfono" Type="varchar" MaxLength="14" />
           <Property Name="E-mail" Type="varchar" MaxLength="60" />
           <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="bitacora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="accion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="realizada_por" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="tabla" Type="varchar" MaxLength="20" />
+          <Property Name="folio" Type="int" />
         </EntityType>
         <EntityType Name="Carrera">
           <Key>
@@ -94,7 +105,10 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Grupo Referente" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Motivo" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Comprobante" Type="varbinary(max)" />
-          <Property Name="Fecha" Type="date" />
+          <Property Name="Fecha del dia" Type="date" />
+          <Property Name="Fecha al dia" Type="date" />
+          <Property Name="Valor" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -133,6 +147,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
           <Property Name="Medio de Autorizacion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Comprobante" Type="varbinary(max)" />
           <Property Name="Fecha" Type="date" />
+          <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="Tutor">
           <Key>
@@ -168,8 +183,9 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
         <Function Name="importar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RutaArchivo" Type="nvarchar(max)" Mode="In" />
         </Function>
-        <EntityContainer Name="CONALEPcheckinModelStoreContainer">
+        <EntityContainer Name="CNLModelStoreContainer">
           <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bitacora" EntityType="Self.bitacora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Justificante" EntityType="Self.Justificante" Schema="dbo" store:Type="Tables" />
@@ -220,7 +236,8 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
     [Pase de salida].[Autoriza] AS [Autoriza], 
     [Pase de salida].[Medio de Autorizacion] AS [Medio de Autorizacion], 
     [Pase de salida].[Comprobante] AS [Comprobante], 
-    [Pase de salida].[Fecha] AS [Fecha]
+    [Pase de salida].[Fecha] AS [Fecha], 
+    [Pase de salida].[Activo] AS [Activo]
     FROM [dbo].[Pase de salida] AS [Pase de salida]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Grupo__Plan de E__403A8C7D" Association="Self.FK__Grupo__Plan de E__403A8C7D">
@@ -232,7 +249,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CONALEPcheckinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CNLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Alumno">
           <Key>
             <PropertyRef Name="Matricula" />
@@ -242,7 +259,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
           <Property Name="Primer_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Segundo_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Email_institucional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Dom_Colonia" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="Cd__Localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Dom_CP" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
@@ -255,6 +272,17 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
           <Property Name="Teléfono" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="E_mail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="bitacora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="realizada_por" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="tabla" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="folio" Type="Int32" />
         </EntityType>
         <EntityType Name="Carrera">
           <Key>
@@ -285,7 +313,10 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
           <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Motivo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Comprobante" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_del_dia" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_al_dia" Type="DateTime" Precision="0" />
+          <Property Name="Valor" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -370,6 +401,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
           <Property Name="Medio_de_Autorizacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Comprobante" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" />
         </EntityType>
         <Association Name="FK__Grupo__Plan_de_E__403A8C7D">
           <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1">
@@ -387,6 +419,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
         </Association>
         <EntityContainer Name="DB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+          <EntitySet Name="bitacora" EntityType="Self.bitacora" />
           <EntitySet Name="Carrera" EntityType="Self.Carrera" />
           <EntitySet Name="Grupo" EntityType="Self.Grupo" />
           <EntitySet Name="Justificante" EntityType="Self.Justificante" />
@@ -413,9 +446,9 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CONALEPcheckinModelStoreContainer" CdmEntityContainer="DB">
+        <EntityContainerMapping StorageEntityContainer="CNLModelStoreContainer" CdmEntityContainer="DB">
           <EntitySetMapping Name="Alumno">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Alumno">
+            <EntityTypeMapping TypeName="CNLModel.Alumno">
               <MappingFragment StoreEntitySet="Alumno">
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -438,8 +471,20 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="bitacora">
+            <EntityTypeMapping TypeName="CNLModel.bitacora">
+              <MappingFragment StoreEntitySet="bitacora">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="realizada_por" ColumnName="realizada_por" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="tabla" ColumnName="tabla" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Carrera">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Carrera">
+            <EntityTypeMapping TypeName="CNLModel.Carrera">
               <MappingFragment StoreEntitySet="Carrera">
                 <ScalarProperty Name="Plan_de_Estudios_Cve" ColumnName="Plan de Estudios Cve" />
                 <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
@@ -447,7 +492,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Grupo">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Grupo">
+            <EntityTypeMapping TypeName="CNLModel.Grupo">
               <MappingFragment StoreEntitySet="Grupo">
                 <ScalarProperty Name="Plan_de_Estudios_Cve" ColumnName="Plan de Estudios Cve" />
                 <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
@@ -455,7 +500,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Justificante">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Justificante">
+            <EntityTypeMapping TypeName="CNLModel.Justificante">
               <MappingFragment StoreEntitySet="Justificante">
                 <ScalarProperty Name="No__justificante" ColumnName="No. justificante" />
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
@@ -466,12 +511,15 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
                 <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
                 <ScalarProperty Name="Motivo" ColumnName="Motivo" />
                 <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Fecha_del_dia" ColumnName="Fecha del dia" />
+                <ScalarProperty Name="Fecha_al_dia" ColumnName="Fecha al dia" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Medico">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Medico">
+            <EntityTypeMapping TypeName="CNLModel.Medico">
               <MappingFragment StoreEntitySet="Medico">
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
                 <ScalarProperty Name="Médico_Cv_Filiación" ColumnName="Médico Cv Filiación" />
@@ -483,7 +531,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tutor">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Tutor">
+            <EntityTypeMapping TypeName="CNLModel.Tutor">
               <MappingFragment StoreEntitySet="Tutor">
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
                 <ScalarProperty Name="Tutor_Nombre" ColumnName="Tutor Nombre" />
@@ -495,7 +543,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ingreso">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Ingreso">
+            <EntityTypeMapping TypeName="CNLModel.Ingreso">
               <MappingFragment StoreEntitySet="Ingreso">
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -529,7 +577,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pase_de_salida">
-            <EntityTypeMapping TypeName="CONALEPcheckinModel.Pase_de_salida">
+            <EntityTypeMapping TypeName="CNLModel.Pase_de_salida">
               <MappingFragment StoreEntitySet="Pase de salida">
                 <ScalarProperty Name="No__justificante" ColumnName="No. justificante" />
                 <ScalarProperty Name="Matricula" ColumnName="Matricula" />
@@ -543,12 +591,13 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Pase de salida' no tiene 
                 <ScalarProperty Name="Medio_de_Autorizacion" ColumnName="Medio de Autorizacion" />
                 <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="Activar" FunctionName="CONALEPcheckinModel.Store.Activar" />
-          <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CONALEPcheckinModel.Store.Desactivar" />
-          <FunctionImportMapping FunctionImportName="importar" FunctionName="CONALEPcheckinModel.Store.importar" />
+          <FunctionImportMapping FunctionImportName="Activar" FunctionName="CNLModel.Store.Activar" />
+          <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CNLModel.Store.Desactivar" />
+          <FunctionImportMapping FunctionImportName="importar" FunctionName="CNLModel.Store.importar" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

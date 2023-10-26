@@ -26,5 +26,6 @@ namespace CNLCI.Models
         public string Medio_de_Autorizacion { get; set; }
         public byte[] Comprobante { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<bool> Activo { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CONALEPcheckinModelStoreContainer" CdmEntityContainer="DB">
+  <EntityContainerMapping StorageEntityContainer="CONALEPcheckinModelStoreContainer" CdmEntityContainer="CNL">
     <EntitySetMapping Name="Alumno">
       <EntityTypeMapping TypeName="CONALEPcheckinModel.Alumno">
         <MappingFragment StoreEntitySet="Alumno">
@@ -53,7 +53,9 @@
           <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
           <ScalarProperty Name="Motivo" ColumnName="Motivo" />
           <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Fecha_del_dia" ColumnName="Fecha del dia" />
+          <ScalarProperty Name="Fecha_al_dia" ColumnName="Fecha al dia" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

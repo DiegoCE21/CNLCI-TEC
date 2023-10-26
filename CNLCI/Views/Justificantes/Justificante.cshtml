@@ -14,7 +14,7 @@
             </center>
         </div>
 
-        @using (Html.BeginForm("Buscar", "Justificantes", FormMethod.Post, new { onsubmit = "return validarMatricula();"}))
+        @using (Html.BeginForm("Buscar", "Justificantes", FormMethod.Post, new { onsubmit = "return validarMatricula();" }))
         {
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
@@ -35,10 +35,19 @@
             </div>
         }
 
-        @using (Html.BeginForm("GenerarJ", "Justificantes", FormMethod.Post, new { @class = "este", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("GenerarJ", "Justificantes", FormMethod.Post, new { onsubmit = "return validarDatos();", @class="este", enctype = "multipart/form-data" }))
         {
             @Html.Partial("_Alumno")
 
+    <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+            <button type="reset" class="button is-danger">Limpiar</button>
+        </p>
+        <p class="control">
+            <button type="submit" class="button is-primary">Generar</button>
+        </p>
+    </div>
+            
 
         }
 
@@ -77,18 +86,54 @@
         return true;
     }
 
-    // Obtén el elemento de entrada de archivo y el elemento del nombre del archivo
+    function validarDatos() {
+
+        var alerta = "Debes especificar: \n";
+        var numa = 0;
+        var carrera = document.getElementById("IDCARRERA").value;
+        var grupo = document.getElementById("IDGRUPO").value;
+        var motivo = document.getElementById("Motivo").value;
+        var fecha1 = document.getElementById("fecha").value;
+        var fecha2 = document.getElementById("fechaDelDia").value;
+        var fecha3 = document.getElementById("fechaAlDia").value;
+        
+        if (carrera === "") {
+            alerta += "-Carrera\n";
+            numa += 1; }
+        if (grupo.trim() === "") {
+            alerta += "-Grupo\n";
+            numa += 1; }
+        if (motivo.trim() === "") {
+            alerta += "-Motivo\n";
+            numa += 1; }
+        if (isNaN(Date.parse(fecha1)) && isNaN(Date.parse(fecha2))) {
+            alerta += "-Fecha\n";
+            numa += 1;
+            if (isNaN(Date.parse(fecha3)) && isNaN(Date.parse(fecha2))) {
+                
+                numa += 1;
+                }
+             }
+           
+        if (numa > 0) {
+            alert(alerta);
+            return false; }
+
+        return true;
+    }
+
+    
  //   const fileInput = document.getElementById("fileToUpload");
    // const fileNameElement = document.getElementById("file-name");
 
-    // Agrega un evento de cambio al campo de entrada de archivo
+    
    // fileInput.addEventListener("change", function () {
-        // Verifica si se seleccionó un archivo
+       
      //   if (fileInput.files.length > 0) {
-            // Actualiza el elemento del nombre del archivo con el nombre del archivo seleccionado
+           
        //     fileNameElement.textContent = fileInput.files[0].name;
         //} else {
-            // Si no se selecciona ningún archivo, muestra el mensaje predeterminado
+           
           //  fileNameElement.textContent = "No se ha seleccionado un archivo";
         //}
     //});

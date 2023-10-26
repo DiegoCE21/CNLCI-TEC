@@ -10,7 +10,7 @@
                     <div class="field">
 
                         <div class="control">
-                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly name="Nombre" />
+                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly name="Nombre" id="IDNOMBRE" />
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="field">
                         <div class="control">
                             <div class="select" style=" width: 100%">
-                                <select name="Carrera">
+                                <select name="Carrera" id="IDCARRERA">
 
                                     <option value="" style="display: none;">Seleccionar carrera</option>
                                     <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
@@ -64,7 +64,7 @@
                         <div class="control">
 
                             <div class="select" style=" width: 100%">
-                                <select name="Grupo">
+                                <select name="Grupo" id="IDGRUPO">
 
                                     <option value="" style="display: none;">Seleccionar grupo </option>
                                     <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
@@ -165,14 +165,7 @@
 
 
 
-    <div class="field is-grouped is-grouped-centered">
-        <p class="control">
-            <button type="reset" class="button is-danger">Limpiar</button>
-        </p>
-        <p class="control">
-            <button type="submit" class="button is-primary">Generar</button>
-        </p>
-    </div>
+   
 }
 
 

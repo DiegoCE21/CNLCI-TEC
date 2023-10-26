@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CONALEPcheckinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="CNLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Alumno">
     <Key>
       <PropertyRef Name="Matricula" />
@@ -9,7 +9,7 @@
     <Property Name="Primer_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Segundo_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Email_institucional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Dom_Colonia" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
     <Property Name="Cd__Localidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Dom_CP" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
@@ -22,6 +22,17 @@
     <Property Name="Teléfono" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
     <Property Name="E_mail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
     <Property Name="Activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="bitacora">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="realizada_por" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="tabla" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="folio" Type="Int32" />
   </EntityType>
   <EntityType Name="Carrera">
     <Key>
@@ -51,7 +62,11 @@
     <Property Name="Plan_de_Estudios" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Motivo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Comprobante" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Fecha_del_dia" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_al_dia" Type="DateTime" Precision="0" />
+    <Property Name="Valor" Type="Int32" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Medico">
     <Key>
@@ -136,6 +151,7 @@
     <Property Name="Medio_de_Autorizacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Comprobante" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Activo" Type="Boolean" />
   </EntityType>
   <Association Name="FK__Grupo__Plan_de_E__403A8C7D">
     <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1">
@@ -153,6 +169,7 @@
   </Association>
   <EntityContainer Name="DB" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="bitacora" EntityType="Self.bitacora" />
     <EntitySet Name="Carrera" EntityType="Self.Carrera" />
     <EntitySet Name="Grupo" EntityType="Self.Grupo" />
     <EntitySet Name="Justificante" EntityType="Self.Justificante" />

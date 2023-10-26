@@ -52,7 +52,9 @@
     <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Motivo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Comprobante" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_del_dia" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_al_dia" Type="DateTime" Precision="0" />
+    <Property Name="Valor" Type="Int32" />
   </EntityType>
   <EntityType Name="Medico">
     <Key>
@@ -152,7 +154,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CNL" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Alumno" EntityType="Self.Alumno" />
     <EntitySet Name="Carrera" EntityType="Self.Carrera" />
     <EntitySet Name="Grupo" EntityType="Self.Grupo" />

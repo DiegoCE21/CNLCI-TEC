@@ -179,43 +179,46 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alumno.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bitacora.cs">
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Carrera.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CNL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CNL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CNL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNL.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Grupo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ingreso.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Justificante.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Medico.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pase_de_salida.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tutor.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\MJ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,15 +244,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\CNL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>CNL.edmx</DependentUpon>
+      <LastGenOutput>CNL.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\CNL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>CNL.edmx</DependentUpon>
+      <LastGenOutput>CNL.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -257,12 +260,12 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\CNL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>CNL.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\CNL.edmx.diagram">
+      <DependentUpon>CNL.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\chart.js" />
