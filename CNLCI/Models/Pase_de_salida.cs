@@ -14,7 +14,7 @@ namespace CNLCI.Models
     
     public partial class Pase_de_salida
     {
-        public int No__justificante { get; set; }
+        public int No__pase { get; set; }
         public string Matricula { get; set; }
         public string Nombre { get; set; }
         public string Primer_apellido { get; set; }
@@ -23,9 +23,11 @@ namespace CNLCI.Models
         public string Grupo_Referente { get; set; }
         public string Motivo { get; set; }
         public string Autoriza { get; set; }
+        public string Parentezco { get; set; }
         public string Medio_de_Autorizacion { get; set; }
         public byte[] Comprobante { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
+        public int Valor { get; set; }
         public Nullable<bool> Activo { get; set; }
     }
 }

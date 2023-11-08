@@ -80,6 +80,26 @@
           <ScalarProperty Name="Médico_Institución_Médica" ColumnName="Médico Institución Médica" />
           <ScalarProperty Name="Médico_No_U_de_Salud" ColumnName="Médico No U.de Salud" />
           <ScalarProperty Name="Médico_Unidad_de_Salud" ColumnName="Médico Unidad de Salud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pase_de_salida">
+      <EntityTypeMapping TypeName="CNLModel.Pase_de_salida">
+        <MappingFragment StoreEntitySet="Pase de salida">
+          <ScalarProperty Name="No__pase" ColumnName="No. pase" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Primer_apellido" ColumnName="Primer apellido" />
+          <ScalarProperty Name="Segundo_apellido" ColumnName="Segundo apellido" />
+          <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
+          <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Autoriza" ColumnName="Autoriza" />
+          <ScalarProperty Name="Parentezco" ColumnName="Parentezco" />
+          <ScalarProperty Name="Medio_de_Autorizacion" ColumnName="Medio de Autorizacion" />
+          <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -92,7 +112,6 @@
           <ScalarProperty Name="Tutor_celular" ColumnName="Tutor celular" />
           <ScalarProperty Name="Tutor_correo" ColumnName="Tutor correo" />
           <ScalarProperty Name="Tutor_telefono" ColumnName="Tutor telefono" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -127,25 +146,6 @@
           <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
           <ScalarProperty Name="Tutor_correo" ColumnName="Tutor correo" />
           <ScalarProperty Name="Tutor_telefono" ColumnName="Tutor telefono" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Pase_de_salida">
-      <EntityTypeMapping TypeName="CNLModel.Pase_de_salida">
-        <MappingFragment StoreEntitySet="Pase de salida">
-          <ScalarProperty Name="No__justificante" ColumnName="No. justificante" />
-          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Primer_apellido" ColumnName="Primer apellido" />
-          <ScalarProperty Name="Segundo_apellido" ColumnName="Segundo apellido" />
-          <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
-          <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
-          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
-          <ScalarProperty Name="Autoriza" ColumnName="Autoriza" />
-          <ScalarProperty Name="Medio_de_Autorizacion" ColumnName="Medio de Autorizacion" />
-          <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

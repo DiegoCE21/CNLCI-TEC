@@ -31,13 +31,27 @@
                 </div>
             </div>
         }
-        <form class="este">
+        @using (Html.BeginForm("GenerarP", "Justificantes", FormMethod.Post, new { onsubmit = "return validarDatos();", @class = "este", enctype = "multipart/form-data" }))
+        {@Html.Partial("_AlumnoTutor")
 
-            @Html.Partial("_AlumnoTutor")
 
-        </form>
+        <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+                <button type="reset" class="button is-danger">Limpiar</button>
+            </p>
+            <p class="control">
+                <button type="submit" class="button is-primary">Generar</button>
+            </p>
+        </div>
+    }
+
+
 
     </div>
+
+
+
+    
 
 
 </main>
@@ -61,4 +75,61 @@
         document.getElementById('parentezco').disabled = false;
         document.getElementById('nombreA').disabled = false;
     }
+
+    function validarMatricula() {
+        var matricula = document.getElementById("txtmatricula").value;
+        if (matricula.trim() === "") {
+            alert("Debes ingresar la matrícula del alumno a buscar.");
+            return false;
+        }
+        return true;
+    }
+
+    function validarDatos() {
+
+        var alerta = "Debes especificar: \n";
+        var numa = 0;
+        var carrera = document.getElementById("IDCARRERA").value;
+        var grupo = document.getElementById("IDGRUPO").value;
+        var motivo = document.getElementById("Motivo").value;
+        var medio = document.getElementById("Medio").value;
+        var Paut = document.getElementById("parentezco").value;
+        var Nau = document.getElementById("nombreA").value;
+        var Rau = document.getElementById("autorizo").value;
+
+        if (carrera === "") {
+            alerta += "-Carrera\n";
+            numa += 1;
+        }
+        if (grupo.trim() === "") {
+            alerta += "-Grupo\n";
+            numa += 1;
+        }
+        if (motivo.trim() === "") {
+            alerta += "-Motivo\n";
+            numa += 1;
+        }
+        if (medio.trim()==="") {
+            alerta += "-Medio de autorización\n";
+            numa += 1;
+           
+        }
+        if (Rau.trim() === "" && Nau.trim() ==="") {
+            alerta += "-Quién autoriza\n";
+            numa += 1;
+            if (Paut.trim() === "") {
+                alerta += "-Parentezco con el alumno de quién autoriza\n";
+                numa += 1;
+}
+        }
+
+        if (numa > 0) {
+            alert(alerta);
+            return false;
+        }
+
+        return true;
+    }
+
+
 </script>

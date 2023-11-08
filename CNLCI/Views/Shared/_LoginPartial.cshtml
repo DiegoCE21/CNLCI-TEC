@@ -36,6 +36,22 @@
                 <div class="container" style="color:white">
                     <ion-icon name="timer-outline"></ion-icon>
                     @Html.ActionLink("Historial", "Index", "Home", new { area = "" }, new { @class = " nav-link lol" })
+                    
+                </div>
+            </li>
+            <li>
+                <div class="container" style="color:white">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <div class="nav-item dropdown " style="position:relative">
+                        <a class="nav-link dropdown-toggle lol" href="#" id="configuraciones" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Configuraciones
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="configuraciones">
+                            <a class="dropdown-item" href="@Url.Action("Importar", "Configuracion")"><ion-icon name="people-outline"></ion-icon>  Alumnos</a>
+                            <a class="dropdown-item" href="@Url.Action("Importar", "Configuracion")"><ion-icon name="server-outline"></ion-icon>  Base de datos</a>
+
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>

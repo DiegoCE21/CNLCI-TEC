@@ -19,6 +19,5 @@ namespace CNLCI.Models
         public string Médico_Institución_Médica { get; set; }
         public string Médico_No_U_de_Salud { get; set; }
         public string Médico_Unidad_de_Salud { get; set; }
-        public Nullable<bool> Activo { get; set; }
     }
 }

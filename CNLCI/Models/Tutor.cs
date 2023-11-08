@@ -19,6 +19,5 @@ namespace CNLCI.Models
         public string Tutor_celular { get; set; }
         public string Tutor_correo { get; set; }
         public string Tutor_telefono { get; set; }
-        public Nullable<bool> Activo { get; set; }
     }
 }

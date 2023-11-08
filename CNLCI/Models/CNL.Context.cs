@@ -33,9 +33,9 @@ namespace CNLCI.Models
         public virtual DbSet<Grupo> Grupo { get; set; }
         public virtual DbSet<Justificante> Justificante { get; set; }
         public virtual DbSet<Medico> Medico { get; set; }
+        public virtual DbSet<Pase_de_salida> Pase_de_salida { get; set; }
         public virtual DbSet<Tutor> Tutor { get; set; }
         public virtual DbSet<Ingreso> Ingreso { get; set; }
-        public virtual DbSet<Pase_de_salida> Pase_de_salida { get; set; }
     
         public virtual int Activar(string identificador)
         {

@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -171,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConfiguracionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JustificantesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -254,6 +258,10 @@
       <DependentUpon>CNL.edmx</DependentUpon>
       <LastGenOutput>CNL.cs</LastGenOutput>
     </Content>
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -267,6 +275,7 @@
     <Content Include="Models\CNL.edmx.diagram">
       <DependentUpon>CNL.edmx</DependentUpon>
     </Content>
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\chart.min.js" />
@@ -280,6 +289,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Style\assets\con.jpg" />
+    <Content Include="Style\assets\conjunto.jpg" />
+    <Content Include="Style\assets\edunl.jpg" />
+    <Content Include="Style\assets\logo-nuevo-leon_800x.png" />
     <Content Include="Style\desing.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -306,9 +319,13 @@
     <Content Include="Views\Justificantes\_Tutor.cshtml" />
     <Content Include="Views\Justificantes\_AlumnoTutor.cshtml" />
     <Content Include="Views\Justificantes\_Motivo.cshtml" />
+    <Content Include="Views\Configuracion\Importar.cshtml" />
+    <Content Include="Views\Justificantes\PDFPase.cshtml" />
+    <Content Include="Views\Justificantes\PDFJustificante.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ArchivosPI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -3,5 +3,27 @@
     ViewBag.Title = "PorAlumno";
 }
 
-<h2>PorAlumno</h2>
+<div class="container">
+    <form method="post" action="/Controlador/ObtenerDatos">
+        <div class="field is-grouped">
+            <div class="control">
+                <input class="input" type="text" name="matricula" placeholder="Matrícula del alumno">
+            </div>
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="meses" value="1"> Enero
+                </label>
+            </div>
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="meses" value="2"> Febrero
+                </label>
+            </div>
+            <!-- Añade más meses según sea necesario -->
+        </div>
+        <div class="control">
+            <button class="button is-primary" type="submit">Obtener Datos</button>
+        </div>
+    </form>
+</div>
 

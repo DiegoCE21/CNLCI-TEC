@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ceaa7dc0f8b445c28c7d7f13834b7abd" Name="Diagram1">
+      <Diagram DiagramId="97c9fb5571f849b7b5b2d5904e622f68" Name="Diagram1">
         <EntityTypeShape EntityType="CNLModel.Alumno" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CNLModel.bitacora" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CNLModel.Carrera" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CNLModel.Grupo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CNLModel.Justificante" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CNLModel.Medico" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CNLModel.Tutor" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CNLModel.Ingreso" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CNLModel.Pase_de_salida" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNLModel.Pase_de_salida" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNLModel.Tutor" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNLModel.Ingreso" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="CNLModel.FK__Grupo__Plan_de_E__403A8C7D" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

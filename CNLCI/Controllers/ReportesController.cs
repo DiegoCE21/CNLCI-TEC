@@ -2,6 +2,7 @@
 
 namespace CNLCI.Controllers
 {
+    [Authorize]
     public class ReportesController : Controller
     {
 
