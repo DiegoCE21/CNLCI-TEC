@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CNLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="CONALEPcheckinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Alumno">
     <Key>
       <PropertyRef Name="Matricula" />
@@ -67,6 +67,7 @@
     <Property Name="Fecha_al_dia" Type="DateTime" Precision="0" />
     <Property Name="Valor" Type="Int32" />
     <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Medico">
     <Key>
@@ -97,6 +98,7 @@
     <Property Name="Fecha" Type="DateTime" Precision="0" />
     <Property Name="Valor" Type="Int32" Nullable="false" />
     <Property Name="Activo" Type="Boolean" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Tutor">
     <Key>

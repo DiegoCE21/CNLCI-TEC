@@ -34,9 +34,19 @@
             </li>
             <li>
                 <div class="container" style="color:white">
-                    <ion-icon name="timer-outline"></ion-icon>
-                    @Html.ActionLink("Historial", "Index", "Home", new { area = "" }, new { @class = " nav-link lol" })
-                    
+                    <ion-icon name="podium-outline"></ion-icon>
+                    <div class="nav-item dropdown " style="position:relative">
+                        <a class="nav-link dropdown-toggle lol" href="#" id="reportes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Historial
+
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="reportes">
+
+                            <a class="dropdown-item" href="@Url.Action("Justificante", "Historial")"><ion-icon name="reader-outline"></ion-icon>  Justificantes</a>
+                            <a class="dropdown-item" href="@Url.Action("PaseS", "Historial")"><ion-icon name="id-card-outline"></ion-icon>  Pases de salida</a>
+
+                        </div>
+                    </div>
                 </div>
             </li>
             <li>
@@ -61,6 +71,7 @@
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle lol" href="#" id="usuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @User.Identity.Name
+                       
 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="usuario">

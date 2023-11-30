@@ -44,7 +44,7 @@ namespace CNLCI
                     {
                         SecurityTokenValidated = (context) =>
                         {
-                            string name = context.AuthenticationTicket.Identity.FindFirst("preferred_username").Value;
+                            string name = context.AuthenticationTicket.Identity.FindFirst("name").Value;
                             context.AuthenticationTicket.Identity.AddClaim(new Claim(ClaimTypes.Name, name, string.Empty));
                             return System.Threading.Tasks.Task.FromResult(0);
                         }

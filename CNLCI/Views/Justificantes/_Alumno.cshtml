@@ -40,48 +40,30 @@
                     </div>
                 </div>
 
-                <div class="column is-2-4">
-                    <div class="field">
-                        <div class="control">
-                            <div class="select" style=" width: 100%">
-                                <select name="Carrera" id="IDCARRERA">
-
-                                    <option value="" style="display: none;">Seleccionar carrera</option>
-                                    <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
-                                    <option value="FAMILIAR">Familiar</option>
-                                    <option value="MÉDICO">Médico</option>
-                                    <option value="PERSONAL">Personal</option>
-                                    <option value="VIAJE EDUCATIVO">Viaje educativo</option>
-
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column is-one-quarter">
-                    <div class="field">
-                        <div class="control">
-
-                            <div class="select" style=" width: 100%">
-                                <select name="Grupo" id="IDGRUPO">
-
-                                    <option value="" style="display: none;">Seleccionar grupo </option>
-                                    <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
-                                    <option value="FAMILIAR">Familiar</option>
-                                    <option value="MÉDICO">Médico</option>
-                                    <option value="PERSONAL">Personal</option>
-                                    <option value="VIAJE EDUCATIVO">Viaje educativo</option>
-
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @Html.Partial("_Carrera")
             </div>
         </div>
     </div>
-    @Html.Partial("_Motivo")
+
+    <div class="container">
+        <div class="Marco">
+            <div class="columns">
+                @Html.Partial("_Motivo")
+                <div class="column is-2-4">
+                    <div class="field">
+                        <div class="control">
+                            <div style=" width: 100%">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="container" style="text-align: left;">
         <div class="Marco">
             <div class="field is-horizontal">
@@ -92,16 +74,16 @@
                     <div class="column">
                         <div class="field">
                             <div class="control">
-                                <!-- Botón de radio "Única" -->
+
                                 <label class="radio">
                                     <input type="radio" name="fecha" value="unica" onclick="habilitarFecha()" checked>
-                                    Única
+                                    <b>Única</b>
                                 </label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <!-- Campo de fecha -->
+
                                 <input class="input" type="date" id="fecha" name="fecha1">
                             </div>
                         </div>
@@ -109,10 +91,10 @@
                     <div class="column">
                         <div class="field">
                             <div class="control">
-                                <!-- Botón de radio "Extendida" -->
+
                                 <label class="radio">
                                     <input type="radio" name="fecha" value="extendida" onclick="habilitarExtendida()">
-                                    Extendida
+                                    <b>Extendida</b>
                                 </label>
                             </div>
                         </div>
@@ -120,14 +102,14 @@
                             <div class="field">
                                 <div class="control">
                                     <label class="label">Del día</label>
-                                    <!-- Campo de fecha "Del día" con formato yyyy/mm/dd -->
+
                                     <input class="input" type="date" id="fechaDelDia" name="fechaDelDia" disabled>
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="control">
+
                                     <label class="label">Al día</label>
-                                    <!-- Campo de fecha "Al día" con formato yyyy/mm/dd -->
                                     <input class="input" type="date" id="fechaAlDia" name="fechaAlDia" disabled>
                                 </div>
                             </div>
@@ -138,34 +120,37 @@
         </div>
     </div>
 
-
-    <div class="container" style="text-align: left;">
+    <div class="container">
         <div class="Marco">
             <div class="field is-horizontal">
-                <div class="field-label is-normal is-flex is-align-items-center">
-                    <label class="label">Seleccionar archivo</label>
-                </div>
-                <div class="field-body has-addons-centered">
-                    <div class="column">
+                <div class="field-label is-flex">
+                    <div class="column is-2-4">
+                        <center>
+                            <label class="label">Seleccionar archivo como comprobante</label>
+                            <br />
+                            <br />
+                            <input type="file" name="archivo" id="archivo">
+                        </center>
+                    </div>
+                    <div class="column is-2-4">
+                        <center> <label class="label">Observaciones</label></center>
                         <div class="file is-primary has-name">
-                            <label class="file-label">
-                                <input type="file" name="archivo" id="archivo">
 
-                               
-                            </label>
+                            <textarea class="textarea is-primary" name="Observaciones" rows="4" ></textarea>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
 
 
 
 
 
-   
 }
 
 

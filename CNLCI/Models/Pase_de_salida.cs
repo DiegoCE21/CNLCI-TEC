@@ -29,5 +29,6 @@ namespace CNLCI.Models
         public Nullable<System.DateTime> Fecha { get; set; }
         public int Valor { get; set; }
         public Nullable<bool> Activo { get; set; }
+        public string Observaciones { get; set; }
     }
 }

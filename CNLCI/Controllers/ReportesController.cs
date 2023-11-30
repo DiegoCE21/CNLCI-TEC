@@ -1,4 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using CNLCI.Models;
+using CNLCI.Models.ViewModel;
+using System;
+using System.Data;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace CNLCI.Controllers
 {
@@ -7,6 +12,34 @@ namespace CNLCI.Controllers
     {
 
         public ActionResult PorAlumno() { return View(); }
+
+        [HttpPost]
+        public ActionResult TraerDatos(string matricula, DateTime fechaInicial, DateTime fechaFinal)
+        {
+            using (DB db = new DB())
+            {
+
+                var matriculaBuscada = matricula;
+
+                var response = db.Justificante
+                    .Where(j => j.Matricula == matriculaBuscada &&
+                        j.Fecha_al_dia.HasValue &&
+                        j.Fecha_al_dia.Value >= fechaInicial &&
+                        j.Fecha_al_dia.Value <= fechaFinal)
+                    .GroupBy(j => new { Mes = j.Fecha_al_dia.Value.Month, Año = j.Fecha_al_dia.Value.Year })
+                    .Select(g => new ReporteA
+                    {
+                        Mes = g.Key.Mes,
+                        Año = g.Key.Año,
+                        Valor = g.Count()
+                    })
+                    .ToList();
+
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
         public ActionResult PorGrupo() { return View(); }
         public ActionResult PorCarrera() { return View(); }
         public ActionResult PorSemestre() { return View(); }

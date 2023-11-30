@@ -3,27 +3,204 @@
     ViewBag.Title = "PorAlumno";
 }
 
-<div class="container">
-    <form method="post" action="/Controlador/ObtenerDatos">
-        <div class="field is-grouped">
-            <div class="control">
-                <input class="input" type="text" name="matricula" placeholder="Matrícula del alumno">
-            </div>
-            <div class="control">
-                <label class="checkbox">
-                    <input type="checkbox" name="meses" value="1"> Enero
-                </label>
-            </div>
-            <div class="control">
-                <label class="checkbox">
-                    <input type="checkbox" name="meses" value="2"> Febrero
-                </label>
-            </div>
-            <!-- Añade más meses según sea necesario -->
-        </div>
-        <div class="control">
-            <button class="button is-primary" type="submit">Obtener Datos</button>
-        </div>
-    </form>
-</div>
 
+<main>
+
+
+    <div class="container Marco">
+        <div style="margin-bottom: 20px;">
+            <center>
+                <h1 class="title">   Reporte por alumno</h1>
+            </center>
+        </div>
+        <div class="columns">
+            <div class="column is-one-quarter" style=" height: 25em;">
+                <div class="box">
+                    @using (Html.BeginForm(null, null, FormMethod.Post))
+                    {
+
+                        <div class="field">
+                            <label class="label">Matrícula</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ingrese una matrícula" name="M" maxlength="11">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Fecha Inicial</label>
+                            <div class="control">
+                                <input class="input" type="date" name="FI">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Fecha Final</label>
+                            <div class="control">
+                                <input class="input" type="date" name="FF">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button type="button" class="button is-primary" onclick="TraerDatos()">Buscar</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="column este2">
+
+                <div id="chart"></div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script>
+
+   // Función para traer datos del servidor y dibujar el gráfico
+    function TraerDatos() {
+    var matricula = document.getElementsByName("M")[0].value;
+    var fechaInicial = document.getElementsByName("FI")[0].value;
+    var fechaFinal = document.getElementsByName("FF")[0].value;
+
+    var formData = new FormData();
+    formData.append("M", matricula);
+    formData.append("FI", fechaInicial);
+    formData.append("FF", fechaFinal);
+
+        fetch('@Url.Action("TraerDatos", "Reportes")', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({matricula:matricula, fechaInicial:fechaInicial, fechaFinal:  fechaFinal})
+
+        })
+            .then(response => response.json())
+            .then(data => {
+
+       DibujarGrafico(data);
+           console.log(data);
+              })
+            .catch(error => {
+            console.error("Error:", error);
+    });
+}
+
+
+function DibujarGrafico(data) {
+
+    var dataPorAño = {};
+    data.forEach(item => {
+        if (!dataPorAño[item.Año]) {
+            dataPorAño[item.Año] = [];
+        }
+        dataPorAño[item.Año].push({ x: item.Mes, y: item.Valor });
+    });
+
+    // Convertir datos a formato esperado por ApexCharts
+    var series = Object.keys(dataPorAño).map(año => ({
+        name: año,
+        data: dataPorAño[año]
+    }));
+
+    // Configuración de la gráfica
+    var options = {
+        series: [{
+            name: "Session Duration",
+            data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+        },
+        {
+            name: "Page Views",
+            data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+        },
+        {
+            name: 'Total Visits',
+            data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+        }
+        ],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            },
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            width: [5, 7, 5],
+            curve: 'straight',
+            dashArray: [0, 8, 5]
+        },
+        title: {
+            text: 'Page Statistics',
+            align: 'left'
+        },
+        legend: {
+            tooltipHoverFormatter: function (val, opts) {
+                return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+            }
+        },
+        markers: {
+            size: 0,
+            hover: {
+                sizeOffset: 6
+            }
+        },
+        xaxis: {
+            categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
+                '10 Jan', '11 Jan', '12 Jan'
+            ],
+        },
+        tooltip: {
+            y: [
+                {
+                    title: {
+                        formatter: function (val) {
+                            return val + " (mins)"
+                        }
+                    }
+                },
+                {
+                    title: {
+                        formatter: function (val) {
+                            return val + " per session"
+                        }
+                    }
+                },
+                {
+                    title: {
+                        formatter: function (val) {
+                            return val;
+                        }
+                    }
+                }
+            ]
+        },
+        grid: {
+            borderColor: '#f1f1f1',
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+      
+
+    // Crear la gráfica
+   // var chart = new ApexCharts(document.querySelector("#chart"), {
+     //   series: series,
+       // options: options
+//    });
+
+    // Renderizar la gráfica
+   // chart.render();
+}
+
+
+
+</script>

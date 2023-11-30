@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CNLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="CONALEPcheckinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Alumno">
     <Key>
       <PropertyRef Name="Matricula" />
@@ -104,6 +104,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     <Property Name="Fecha al dia" Type="date" />
     <Property Name="Valor" Type="int" />
     <Property Name="Activo" Type="bit" Nullable="false" />
+    <Property Name="Observaciones" Type="ntext" />
   </EntityType>
   <EntityType Name="Medico">
     <Key>
@@ -134,6 +135,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     <Property Name="Fecha" Type="date" />
     <Property Name="Valor" Type="int" Nullable="false" />
     <Property Name="Activo" Type="bit" />
+    <Property Name="Observaciones" Type="ntext" />
   </EntityType>
   <EntityType Name="Tutor">
     <Key>
@@ -168,7 +170,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
   <Function Name="importar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="RutaArchivo" Type="nvarchar(max)" Mode="In" />
   </Function>
-  <EntityContainer Name="CNLModelStoreContainer">
+  <EntityContainer Name="CONALEPcheckinModelStoreContainer">
     <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bitacora" EntityType="Self.bitacora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />

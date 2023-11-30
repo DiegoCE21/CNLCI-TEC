@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CNLModelStoreContainer" CdmEntityContainer="DB">
+  <EntityContainerMapping StorageEntityContainer="CONALEPcheckinModelStoreContainer" CdmEntityContainer="DB">
     <EntitySetMapping Name="Alumno">
-      <EntityTypeMapping TypeName="CNLModel.Alumno">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Alumno">
         <MappingFragment StoreEntitySet="Alumno">
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -26,7 +26,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="bitacora">
-      <EntityTypeMapping TypeName="CNLModel.bitacora">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.bitacora">
         <MappingFragment StoreEntitySet="bitacora">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="accion" ColumnName="accion" />
@@ -38,7 +38,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Carrera">
-      <EntityTypeMapping TypeName="CNLModel.Carrera">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Carrera">
         <MappingFragment StoreEntitySet="Carrera">
           <ScalarProperty Name="Plan_de_Estudios_Cve" ColumnName="Plan de Estudios Cve" />
           <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
@@ -46,7 +46,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Grupo">
-      <EntityTypeMapping TypeName="CNLModel.Grupo">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Grupo">
         <MappingFragment StoreEntitySet="Grupo">
           <ScalarProperty Name="Plan_de_Estudios_Cve" ColumnName="Plan de Estudios Cve" />
           <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Justificante">
-      <EntityTypeMapping TypeName="CNLModel.Justificante">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Justificante">
         <MappingFragment StoreEntitySet="Justificante">
           <ScalarProperty Name="No__justificante" ColumnName="No. justificante" />
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
@@ -69,11 +69,12 @@
           <ScalarProperty Name="Fecha_al_dia" ColumnName="Fecha al dia" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Medico">
-      <EntityTypeMapping TypeName="CNLModel.Medico">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Medico">
         <MappingFragment StoreEntitySet="Medico">
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
           <ScalarProperty Name="Médico_Cv_Filiación" ColumnName="Médico Cv Filiación" />
@@ -84,7 +85,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pase_de_salida">
-      <EntityTypeMapping TypeName="CNLModel.Pase_de_salida">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Pase_de_salida">
         <MappingFragment StoreEntitySet="Pase de salida">
           <ScalarProperty Name="No__pase" ColumnName="No. pase" />
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
@@ -101,11 +102,12 @@
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tutor">
-      <EntityTypeMapping TypeName="CNLModel.Tutor">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Tutor">
         <MappingFragment StoreEntitySet="Tutor">
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
           <ScalarProperty Name="Tutor_Nombre" ColumnName="Tutor Nombre" />
@@ -116,7 +118,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ingreso">
-      <EntityTypeMapping TypeName="CNLModel.Ingreso">
+      <EntityTypeMapping TypeName="CONALEPcheckinModel.Ingreso">
         <MappingFragment StoreEntitySet="Ingreso">
           <ScalarProperty Name="Matricula" ColumnName="Matricula" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -149,8 +151,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="Activar" FunctionName="CNLModel.Store.Activar" />
-    <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CNLModel.Store.Desactivar" />
-    <FunctionImportMapping FunctionImportName="importar" FunctionName="CNLModel.Store.importar" />
+    <FunctionImportMapping FunctionImportName="Activar" FunctionName="CONALEPcheckinModel.Store.Activar" />
+    <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CONALEPcheckinModel.Store.Desactivar" />
+    <FunctionImportMapping FunctionImportName="importar" FunctionName="CONALEPcheckinModel.Store.importar" />
   </EntityContainerMapping>
 </Mapping>

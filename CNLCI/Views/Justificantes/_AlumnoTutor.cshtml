@@ -9,7 +9,7 @@
                     <div class="field">
 
                         <div class="control">
-                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly name="Nombre"/>
+                            <input class="input" type="text" placeholder="Nombre(s)" value="@datos.Nombre" readonly name="Nombre" />
                         </div>
                     </div>
                 </div>
@@ -39,50 +39,23 @@
                     </div>
                 </div>
 
-                <div class="column is-2-4">
-                    <div class="field">
-                        <div class="control">
-                            <div class="select" style=" width: 100%">
-                                <select id="IDCARRERA" name="Carrera">
 
-                                    <option value="" style="display: none;">Seleccionar carrera</option>
-                                    <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
-                                    <option value="FAMILIAR">Familiar</option>
-                                    <option value="MÉDICO">Médico</option>
-                                    <option value="PERSONAL">Personal</option>
-                                    <option value="VIAJE EDUCATIVO">Viaje educativo</option>
+                @Html.Partial("_Carrera")
 
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column is-one-quarter">
-                    <div class="field">
-                        <div class="control">
-
-                            <div class="select" style=" width: 100%">
-                                <select id="IDGRUPO" name="Grupo">
-
-                                    <option value="" style="display: none;">Seleccionar grupo </option>
-                                    <option value="ACTIVIDADES EXTRACURRICULARES">Actividades extracurriculares</option>
-                                    <option value="FAMILIAR">Familiar</option>
-                                    <option value="MÉDICO">Médico</option>
-                                    <option value="PERSONAL">Personal</option>
-                                    <option value="VIAJE EDUCATIVO">Viaje educativo</option>
-
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="Marco">
+            <div class="columns">
+                @Html.Partial("_Motivo")
+                @Html.Partial("_Autoriza")
 
-    @Html.Partial("_Motivo")
-    
+            </div>
+        </div>
+    </div>
+   
+
 
     <div class="container">
         <div class="Marco">
@@ -113,7 +86,6 @@
                     <div class="column">
                         <div class="field">
                             <div class="control">
-
                                 <label class="radio">
                                     <input type="radio" name="autorizo" value="externo" onclick="habilitarOtro()">
                                     <b>Externo</b>
@@ -155,20 +127,24 @@
         </div>
     </div>
 
-    <div class="container" style="text-align: left;">
+    <div class="container" >
         <div class="Marco">
             <div class="field is-horizontal">
-                <div class="field-label is-normal is-flex is-align-items-center">
-                    <label class="label">Seleccionar archivo</label>
-                </div>
-                <div class="field-body has-addons-centered">
-                    <div class="column">
+                <div class="field-label is-flex">
+                    <div class="column is-2-4">
+                        <center>
+                            <label class="label">Seleccionar archivo como comprobante</label>
+                            <br />
+                            <br />
+                            <input type="file" name="archivo" id="archivo">
+                        </center>
+                    </div>
+                    <div class="column is-2-4">
+                        <center> <label class="label">Observaciones</label></center>
                         <div class="file is-primary has-name">
-                            <label class="file-label">
-                                <input type="file" name="archivo" id="archivo">
-
-
-                            </label>
+                            
+                                <textarea class="textarea is-primary" name="Observaciones" rows="4"></textarea>
+                           
                         </div>
                     </div>
                 </div>

@@ -3,5 +3,56 @@
     ViewBag.Title = "PorSemestre";
 }
 
-<h2>PorSemestre</h2>
+<main>
+
+
+    <div class="container Marco">
+        <div style="margin-bottom: 20px;">
+            <center>
+                <h1 class="title">   Reporte por alumno</h1>
+            </center>
+        </div>
+        <div class="columns">
+            <div class="column is-one-quarter" style=" height: 25em;">
+                <div class="box">
+
+                    @using (Html.BeginForm(null, null, FormMethod.Post))
+                    {
+
+                        <div class="field">
+                            <label class="label">Matrícula</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ingrese una matrícula" name="M" maxlength="11">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Fecha Inicial</label>
+                            <div class="control">
+                                <input class="input" type="date" name="FI">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Fecha Final</label>
+                            <div class="control">
+                                <input class="input" type="date" name="FF">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button type="button" class="button is-primary" >Buscar</button>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="column este2">
+
+                <div id="chart"></div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
 
