@@ -175,6 +175,23 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
         <Function Name="importar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RutaArchivo" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="RAJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="matricula" Type="varchar" Mode="In" />
+          <Parameter Name="fechaI" Type="datetime" Mode="In" />
+          <Parameter Name="fechaF" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="RCJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaI" Type="datetime" Mode="In" />
+          <Parameter Name="fechaF" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="RGJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaI" Type="datetime" Mode="In" />
+          <Parameter Name="fechaF" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="RMJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaI" Type="datetime" Mode="In" />
+          <Parameter Name="fechaF" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="CONALEPcheckinModelStoreContainer">
           <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bitacora" EntityType="Self.bitacora" Schema="dbo" store:Type="Tables" />
@@ -410,7 +427,52 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <FunctionImport Name="importar">
             <Parameter Name="RutaArchivo" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="RAJ" ReturnType="Collection(CONALEPcheckinModel.RAJ_Result)">
+            <Parameter Name="matricula" Mode="In" Type="String" />
+            <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="RCJ" ReturnType="Collection(CONALEPcheckinModel.RCJ_Result)">
+            <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="RGJ" ReturnType="Collection(CONALEPcheckinModel.RGJ_Result)">
+            <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="RMJ" ReturnType="Collection(CONALEPcheckinModel.RMJ_Result)">
+            <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="RAJ_Result">
+          <Property Type="Int32" Name="Mes" Nullable="true" />
+          <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Año" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="RCJ_Result">
+          <Property Type="String" Name="Plan_de_Estudios" Nullable="false" MaxLength="70" />
+          <Property Type="Int32" Name="Mes" Nullable="true" />
+          <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Año" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="RGJ_Result">
+          <Property Type="String" Name="Grupo_Referente" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="Mes" Nullable="true" />
+          <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Año" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="RMJ_Result">
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Mes" Nullable="true" />
+          <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Año" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -570,6 +632,50 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <FunctionImportMapping FunctionImportName="Activar" FunctionName="CONALEPcheckinModel.Store.Activar" />
           <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CONALEPcheckinModel.Store.Desactivar" />
           <FunctionImportMapping FunctionImportName="importar" FunctionName="CONALEPcheckinModel.Store.importar" />
+          <FunctionImportMapping FunctionImportName="RAJ" FunctionName="CONALEPcheckinModel.Store.RAJ">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CONALEPcheckinModel.RAJ_Result">
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RCJ" FunctionName="CONALEPcheckinModel.Store.RCJ">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CONALEPcheckinModel.RCJ_Result">
+                <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RGJ" FunctionName="CONALEPcheckinModel.Store.RGJ">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CONALEPcheckinModel.RGJ_Result">
+                <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RMJ" FunctionName="CONALEPcheckinModel.Store.RMJ">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CONALEPcheckinModel.RMJ_Result">
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

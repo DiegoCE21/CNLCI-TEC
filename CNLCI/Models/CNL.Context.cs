@@ -63,5 +63,61 @@ namespace CNLCI.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("importar", rutaArchivoParameter);
         }
+    
+        public virtual ObjectResult<RAJ_Result> RAJ(string matricula, Nullable<System.DateTime> fechaI, Nullable<System.DateTime> fechaF)
+        {
+            var matriculaParameter = matricula != null ?
+                new ObjectParameter("matricula", matricula) :
+                new ObjectParameter("matricula", typeof(string));
+    
+            var fechaIParameter = fechaI.HasValue ?
+                new ObjectParameter("fechaI", fechaI) :
+                new ObjectParameter("fechaI", typeof(System.DateTime));
+    
+            var fechaFParameter = fechaF.HasValue ?
+                new ObjectParameter("fechaF", fechaF) :
+                new ObjectParameter("fechaF", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RAJ_Result>("RAJ", matriculaParameter, fechaIParameter, fechaFParameter);
+        }
+    
+        public virtual ObjectResult<RCJ_Result> RCJ(Nullable<System.DateTime> fechaI, Nullable<System.DateTime> fechaF)
+        {
+            var fechaIParameter = fechaI.HasValue ?
+                new ObjectParameter("fechaI", fechaI) :
+                new ObjectParameter("fechaI", typeof(System.DateTime));
+    
+            var fechaFParameter = fechaF.HasValue ?
+                new ObjectParameter("fechaF", fechaF) :
+                new ObjectParameter("fechaF", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RCJ_Result>("RCJ", fechaIParameter, fechaFParameter);
+        }
+    
+        public virtual ObjectResult<RGJ_Result> RGJ(Nullable<System.DateTime> fechaI, Nullable<System.DateTime> fechaF)
+        {
+            var fechaIParameter = fechaI.HasValue ?
+                new ObjectParameter("fechaI", fechaI) :
+                new ObjectParameter("fechaI", typeof(System.DateTime));
+    
+            var fechaFParameter = fechaF.HasValue ?
+                new ObjectParameter("fechaF", fechaF) :
+                new ObjectParameter("fechaF", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RGJ_Result>("RGJ", fechaIParameter, fechaFParameter);
+        }
+    
+        public virtual ObjectResult<RMJ_Result> RMJ(Nullable<System.DateTime> fechaI, Nullable<System.DateTime> fechaF)
+        {
+            var fechaIParameter = fechaI.HasValue ?
+                new ObjectParameter("fechaI", fechaI) :
+                new ObjectParameter("fechaI", typeof(System.DateTime));
+    
+            var fechaFParameter = fechaF.HasValue ?
+                new ObjectParameter("fechaF", fechaF) :
+                new ObjectParameter("fechaF", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RMJ_Result>("RMJ", fechaIParameter, fechaFParameter);
+        }
     }
 }

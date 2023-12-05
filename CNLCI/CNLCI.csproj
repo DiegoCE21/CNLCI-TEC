@@ -222,6 +222,18 @@
     <Compile Include="Models\Pase_de_salida.cs">
       <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RAJ_Result.cs">
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RCJ_Result.cs">
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RGJ_Result.cs">
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RMJ_Result.cs">
+      <DependentUpon>CNL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tutor.cs">
       <DependentUpon>CNL.tt</DependentUpon>
     </Compile>
@@ -315,7 +327,7 @@
     <Content Include="Views\Reportes\PorAlumno.cshtml" />
     <Content Include="Views\Reportes\PorGrupo.cshtml" />
     <Content Include="Views\Reportes\PorCarrera.cshtml" />
-    <Content Include="Views\Reportes\PorSemestre.cshtml" />
+    <Content Include="Views\Reportes\PorMotivo.cshtml" />
     <Content Include="Views\Justificantes\PaseDeSalida.cshtml" />
     <Content Include="Views\Justificantes\_Alumno.cshtml" />
     <Content Include="Views\Justificantes\_Tutor.cshtml" />
@@ -332,7 +344,6 @@
     <Content Include="Views\Historial\PDFJustificante.cshtml" />
     <Content Include="Views\Historial\_Fecha.cshtml" />
     <Content Include="Views\Historial\Justificante.cshtml" />
-    <Content Include="Views\Configuracion\Alumno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

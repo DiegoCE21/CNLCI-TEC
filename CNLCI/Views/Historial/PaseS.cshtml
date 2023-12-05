@@ -1,15 +1,80 @@
-﻿
+﻿@model IEnumerable<CNLCI.Models.Pase_de_salida>
 @{
     ViewBag.Title = "PaseS";
 }
 
 <main>
-
-    <div class="container Marco">           
+    <div class="container Marco">
         <div style="margin-bottom: 20px;">
-              
-            
+            <center>
+                <h1 class="title">Historial de justificantes</h1>
+            </center>
+        </div>
+        <div class="container este Marco">
+
+            <table class="table" id="miTabla">
+                <thead>
+                    <tr>
+                        <th>
+                            <center>No. de Pase</center>
+                        </th>
+                        <th>
+                            <center>Matrícula</center>
+                        </th>
+                        <th>
+                            <center>Grupo</center>
+                        </th>
+                        <th>
+                            <center>Motivo</center>
+                        </th>
+                        <th>
+                            <center>Fecha</center>
+                        </th>
+
+                        <th><center>Acciones</center></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <th>
+                            <center>  @item.No__pase</center>
+                        </th>
+                        <td>
+                            <center> @Html.DisplayFor(modelItem => item.Matricula) </center>
+                        </td>
+
+                        <td>
+                            <center> @Html.DisplayFor(modelItem => item.Grupo_Referente)</center>
+                        </td>
+                        <td>
+                            <center> @Html.DisplayFor(modelItem => item.Motivo)</center>
+                        </td>
+
+                        <td>
+                            <center>
+                                @item.Fecha.ToString().Substring(0, 10)
+                            </center>
+                        </td>
+
+                        <td>
+
+                            <center>
+
+                                @Html.ActionLink("Imprimir", "GenerarPDFP", "Historial", new { id = item.No__pase }, new { @class = "button is-rounded button-link", style = "height: auto; max-width: 100%;", target = "_blank" })
+
+                            </center>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
         </div>
     </div>
 </main>
+
 

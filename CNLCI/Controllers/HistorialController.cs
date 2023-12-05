@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace CNLCI.Controllers
 {
+    [Authorize]
     public class HistorialController : Controller
     {
         public ActionResult PaseS()
@@ -27,22 +28,27 @@ namespace CNLCI.Controllers
             }
 
         }
-        public ActionResult GenerarPDFP(string matricula)
+        public ActionResult GenerarPDFP(int id)
         {
 
             using (DB db = new DB())
             {
-
-                var modelo = db.Pase_de_salida.Where(a => a.Matricula == matricula).ToList();
-
-                return new ViewAsPdf("PDFPase", modelo)
-                {
-                    PageSize = Rotativa.Options.Size.Letter,
-                    PageMargins = new Rotativa.Options.Margins(13, 13, 13, 13)
-                };
+                Pase_de_salida modelo = db.Pase_de_salida.SingleOrDefault(i => i.No__pase == id);
+                return RedirectToAction("GenerarPDF", modelo);
             }
 
         }
+        public ActionResult GenerarPDF(Pase_de_salida modelo)
+        {
+
+            return new ViewAsPdf("PDFPase", modelo)
+            {
+                PageSize = Rotativa.Options.Size.Letter,
+                PageMargins = new Rotativa.Options.Margins(13, 13, 13, 13)
+            };
+        }
+
+
 
         public ActionResult GenerarPDFJ(string matricula)
         {

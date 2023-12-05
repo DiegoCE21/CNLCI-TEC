@@ -62,7 +62,7 @@
     <p class="pase-de-salida"><b>Pase de salida</b></p>
     <p class="right-info">
         <span class="ne">No. de pase:  </span>@Model.No__pase &emsp;&emsp;  <br />
-         <span class="ne">Fecha y hora de salida:  </span>@Model.Fecha &emsp; &emsp;
+        <span class="ne">Fecha y hora de salida:  </span>@Model.Fecha.ToString().Substring(0, 10) &emsp; &emsp;
     </p>
     <br /><br />
     <p class="left-info">
@@ -107,7 +107,7 @@
     <p class="pase-de-salida"><b>Pase de salida (Copia)</b></p>
     <p class="right-info">
         <span class="ne">No. de pase:  </span>@Model.No__pase &emsp;&emsp;  <br />
-        <span class="ne">Fecha y hora de salida:  </span>@Model.Fecha &emsp; &emsp;
+        <span class="ne">Fecha y hora de salida:  </span>@Model.Fecha.ToString().Substring(0, 10) &emsp; &emsp;
     </p>
     <br /><br />
     <p class="left-info">
@@ -147,5 +147,8 @@
 
         <span style="text-decoration: underline;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
     </p>
+   
+
+    
 </body>
 </html>

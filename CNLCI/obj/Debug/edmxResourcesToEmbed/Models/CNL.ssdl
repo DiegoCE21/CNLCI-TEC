@@ -170,6 +170,23 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
   <Function Name="importar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="RutaArchivo" Type="nvarchar(max)" Mode="In" />
   </Function>
+  <Function Name="RAJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="matricula" Type="varchar" Mode="In" />
+    <Parameter Name="fechaI" Type="datetime" Mode="In" />
+    <Parameter Name="fechaF" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="RCJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fechaI" Type="datetime" Mode="In" />
+    <Parameter Name="fechaF" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="RGJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fechaI" Type="datetime" Mode="In" />
+    <Parameter Name="fechaF" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="RMJ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fechaI" Type="datetime" Mode="In" />
+    <Parameter Name="fechaF" Type="datetime" Mode="In" />
+  </Function>
   <EntityContainer Name="CONALEPcheckinModelStoreContainer">
     <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bitacora" EntityType="Self.bitacora" Schema="dbo" store:Type="Tables" />

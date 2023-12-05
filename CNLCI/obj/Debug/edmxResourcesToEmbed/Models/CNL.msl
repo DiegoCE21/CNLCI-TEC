@@ -154,5 +154,49 @@
     <FunctionImportMapping FunctionImportName="Activar" FunctionName="CONALEPcheckinModel.Store.Activar" />
     <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CONALEPcheckinModel.Store.Desactivar" />
     <FunctionImportMapping FunctionImportName="importar" FunctionName="CONALEPcheckinModel.Store.importar" />
+    <FunctionImportMapping FunctionImportName="RAJ" FunctionName="CONALEPcheckinModel.Store.RAJ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CONALEPcheckinModel.RAJ_Result">
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RCJ" FunctionName="CONALEPcheckinModel.Store.RCJ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CONALEPcheckinModel.RCJ_Result">
+          <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RGJ" FunctionName="CONALEPcheckinModel.Store.RGJ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CONALEPcheckinModel.RGJ_Result">
+          <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RMJ" FunctionName="CONALEPcheckinModel.Store.RMJ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CONALEPcheckinModel.RMJ_Result">
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="MesNombre" ColumnName="MesNombre" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

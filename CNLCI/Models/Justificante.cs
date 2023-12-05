@@ -28,7 +28,5 @@ namespace CNLCI.Models
         public Nullable<int> Valor { get; set; }
         public bool Activo { get; set; }
         public string Observaciones { get; set; }
-
-        
     }
 }

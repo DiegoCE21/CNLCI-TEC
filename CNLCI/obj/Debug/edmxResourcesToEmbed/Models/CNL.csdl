@@ -184,5 +184,50 @@
     <FunctionImport Name="importar">
       <Parameter Name="RutaArchivo" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="RAJ" ReturnType="Collection(CONALEPcheckinModel.RAJ_Result)">
+      <Parameter Name="matricula" Mode="In" Type="String" />
+      <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RCJ" ReturnType="Collection(CONALEPcheckinModel.RCJ_Result)">
+      <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RGJ" ReturnType="Collection(CONALEPcheckinModel.RGJ_Result)">
+      <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RMJ" ReturnType="Collection(CONALEPcheckinModel.RMJ_Result)">
+      <Parameter Name="fechaI" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaF" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="RAJ_Result">
+    <Property Type="Int32" Name="Mes" Nullable="true" />
+    <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Año" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="RCJ_Result">
+    <Property Type="String" Name="Plan_de_Estudios" Nullable="false" MaxLength="70" />
+    <Property Type="Int32" Name="Mes" Nullable="true" />
+    <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Año" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RGJ_Result">
+    <Property Type="String" Name="Grupo_Referente" Nullable="false" MaxLength="15" />
+    <Property Type="Int32" Name="Mes" Nullable="true" />
+    <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Año" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RMJ_Result">
+    <Property Type="String" Name="Motivo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Mes" Nullable="true" />
+    <Property Type="String" Name="MesNombre" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Año" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+  </ComplexType>
 </Schema>

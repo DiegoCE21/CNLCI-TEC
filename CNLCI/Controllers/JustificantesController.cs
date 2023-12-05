@@ -13,7 +13,7 @@ namespace CNLCI.Controllers
     [Authorize]
     public class JustificantesController : Controller
     {
-        // GET: Justificantes
+
         public ActionResult Justificante(string ruta = null)
         {
             ViewBag.Ruta = ruta;
@@ -28,7 +28,7 @@ namespace CNLCI.Controllers
 
         public JsonResult ObtenerGruposPorCarrera(string planDeEstudiosCve)
         {
-            // Lógica para obtener grupos en función del planDeEstudiosCve
+
             using (DB db = new DB())
             {
                 var grupos = db.Grupo
@@ -36,7 +36,6 @@ namespace CNLCI.Controllers
                     .Select(g => new { Nombre = g.Grupo_Referente })
                     .ToList();
 
-                // Devolver los datos como JsonResult
                 return Json(grupos, JsonRequestBehavior.AllowGet);
             }
 
@@ -145,28 +144,15 @@ namespace CNLCI.Controllers
 
                 Pase_de_salida ultimoRegistro = db.Pase_de_salida.OrderByDescending(x => x.No__pase).FirstOrDefault();
 
-                /*  if (ultimoRegistro != null)
-                 {
-                     // Crear un objeto anónimo con las propiedades del último registro
-                     var resultadoJson = new
-                     {
-                         NoPase = ultimoRegistro.No__pase,
-                         Matricula = ultimoRegistro.Matricula,
-                         // Agrega más propiedades según tus necesidades
-                     };
-
-                     // Devolver un JsonResult con el objeto anónimo
-                     return Json(resultadoJson, JsonRequestBehavior.AllowGet);
-                 }*/
                 if (ultimoRegistro != null)
                 {
-                    //  Task.Run(() => GenerarPdf(ultimoRegistro));
+
                     return RedirectToAction("GenerarPDF", ultimoRegistro);
                 }
             }
 
             return RedirectToAction("PaseDeSalida");
-            //  return Json(null, JsonRequestBehavior.AllowGet);
+
         }
         public ActionResult GenerarPDF(Pase_de_salida modelo)
         {
@@ -177,18 +163,6 @@ namespace CNLCI.Controllers
                 PageMargins = new Rotativa.Options.Margins(13, 13, 13, 13)
             };
         }
-
-        /*  public ActionResult GenerarPdfP(Pase_de_salida modelo)
-          {
-              string nombreArchivo = modelo.Matricula + "P" + modelo.No__pase + ".pdf";
-              var viewAsPdf = new ViewAsPdf("PDFPase", modelo);
-              viewAsPdf.PageSize = Rotativa.Options.Size.Letter;
-              viewAsPdf.PageMargins = new Rotativa.Options.Margins(13, 13, 13, 13);
-              byte[] pdfBytes = viewAsPdf.BuildFile(ControllerContext);
-              string rutaArchivo = Path.Combine(Server.MapPath("~/ArchivosPDF"), nombreArchivo);
-              System.IO.File.WriteAllBytes(rutaArchivo, pdfBytes);
-              return RedirectToAction("PaseDeSalida", new { ruta = nombreArchivo }); 
-          }*/
 
 
 
@@ -284,7 +258,6 @@ namespace CNLCI.Controllers
                 Justificante ultimoRegistro = db.Justificante.OrderByDescending(x => x.No__justificante).FirstOrDefault();
                 if (ultimoRegistro != null)
                 {
-                    //  Task.Run(() => GenerarPdf(ultimoRegistro));
                     return RedirectToAction("GenerarPdfJ", ultimoRegistro);
                 }
             }
@@ -301,17 +274,7 @@ namespace CNLCI.Controllers
             };
         }
 
-        /*  public ActionResult GenerarPdfJ(Justificante modelo)
-          {
-              string nombreArchivo = modelo.Matricula + "J" + modelo.No__justificante + ".pdf";
-              var viewAsPdf = new ViewAsPdf("PDFJustificante", modelo);
-              viewAsPdf.PageSize = Rotativa.Options.Size.Letter;
-              viewAsPdf.PageMargins = new Rotativa.Options.Margins(13, 13, 13, 13);
-              byte[] pdfBytes = viewAsPdf.BuildFile(ControllerContext);
-              string rutaArchivo = Path.Combine(Server.MapPath("~/ArchivosPDF"), nombreArchivo);
-              System.IO.File.WriteAllBytes(rutaArchivo, pdfBytes);
-              return RedirectToAction("Justificante", new { ruta = nombreArchivo });
-          }*/
+
 
         public ActionResult Buscar(string matricula)
         {
