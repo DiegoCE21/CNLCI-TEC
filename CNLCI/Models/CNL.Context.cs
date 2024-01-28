@@ -46,6 +46,11 @@ namespace CNLCI.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Activar", identificadorParameter);
         }
     
+        public virtual int copias()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("copias");
+        }
+    
         public virtual int Desactivar(string identificador)
         {
             var identificadorParameter = identificador != null ?

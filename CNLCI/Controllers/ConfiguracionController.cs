@@ -10,109 +10,10 @@ namespace CNLCI.Controllers
     [Authorize]
     public class ConfiguracionController : Controller
     {
-        // GET: Configuracion
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Configuracion/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Configuracion/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Configuracion/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Configuracion/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Configuracion/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Configuracion/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Configuracion/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
-
-
-
         public ActionResult Importar()
         { return View(); }
 
-        /*  [HttpPost]
-          public ActionResult Importar(HttpPostedFileBase archivo)
-          {
-              if (archivo != null && archivo.ContentLength > 0)
-              {
-                  string RutaArchivo = Server.MapPath("~/ArchivosPI/" + Path.GetFileName(archivo.FileName));
-                  archivo.SaveAs(RutaArchivo);
 
-                  using (DB db = new DB())
-                  {
-
-                      db.Database.ExecuteSqlCommand("EXEC importar @RutaArchivo", new SqlParameter("@RutaArchivo", RutaArchivo));
-                  }
-
-              }
-
-              return RedirectToAction("Importar");
-          }*/
         [HttpPost]
         public ActionResult Importar(HttpPostedFileBase archivo)
         {
@@ -128,11 +29,11 @@ namespace CNLCI.Controllers
                     try
                     {
                         db.Database.ExecuteSqlCommand("EXEC importar @RutaArchivo", new SqlParameter("@RutaArchivo", RutaArchivo));
-                        mensaje = "Los archivos se han subido correctamente.";
+                        mensaje = "Los registros se han subido correctamente.";
                     }
                     catch (Exception ex)
                     {
-                        mensaje = "Error al subir los archivos: " + ex.Message;
+                        mensaje = "Error al subir los registros: " + ex.Message;
                     }
                 }
             }
@@ -141,10 +42,31 @@ namespace CNLCI.Controllers
                 mensaje = "No se ha seleccionado ningún archivo o el archivo está vacío.";
             }
 
-            ViewBag.UploadResult = mensaje;
 
-            return View();
+
+            return Json(mensaje, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult CopiaS()
+        {
+            string connectionString = "data source=WIN-HTKAANTQI7R\\CONALEPCHECKIN;initial catalog=CONALEPcheckin;persist security info=True;;Initial Catalog=CONALEPcheckin;user id=sa;password=Chec-123";
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var nombre = "N'C:/Users/Administrador/Downloads/CONALEPcheckin"+ DateTime.Now.ToString().Substring(0, 2)+ DateTime.Now.ToString().Substring(3,2) + DateTime.Now.ToString().Substring(6, 4) + ".bak'";
+
+                using (var command = new SqlCommand("BACKUP DATABASE [CONALEPcheckin] TO DISK = "+nombre+" WITH NOFORMAT, NOINIT, NAME = N'CONALEPcheckin-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            return Json("La copia de seguridad se ha guardado con éxito en Descargas", JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }
+

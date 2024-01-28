@@ -26,6 +26,8 @@
           <Property Name="Tel Celular" Type="varchar" MaxLength="14" />
           <Property Name="Teléfono" Type="varchar" MaxLength="14" />
           <Property Name="E-mail" Type="varchar" MaxLength="60" />
+          <Property Name="Plan de Estudios" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Grupo Referente" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="bitacora">
@@ -110,6 +112,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Valor" Type="int" />
           <Property Name="Activo" Type="bit" Nullable="false" />
           <Property Name="Observaciones" Type="ntext" />
+          <Property Name="ElaboradoPor" Type="varchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -132,7 +135,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Segundo apellido" Type="varchar" MaxLength="20" />
           <Property Name="Plan de Estudios" Type="varchar" MaxLength="70" Nullable="false" />
           <Property Name="Grupo Referente" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Motivo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Motivo" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Autoriza" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="Parentezco" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Medio de Autorizacion" Type="varchar" MaxLength="30" Nullable="false" />
@@ -141,6 +144,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Valor" Type="int" Nullable="false" />
           <Property Name="Activo" Type="bit" />
           <Property Name="Observaciones" Type="ntext" />
+          <Property Name="ElaboradoPor" Type="varchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="Tutor">
           <Key>
@@ -152,7 +156,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Tutor correo" Type="varchar" MaxLength="60" />
           <Property Name="Tutor telefono" Type="varchar" MaxLength="14" />
         </EntityType>
-        <Association Name="FK__Grupo__Plan de E__403A8C7D">
+        <Association Name="FK__Grupo__Plan de E__65370702">
           <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -169,6 +173,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
         <Function Name="Activar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="identificador" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="copias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Desactivar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="identificador" Type="nvarchar(max)" Mode="In" />
         </Function>
@@ -233,7 +238,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     [Ingreso].[Tutor telefono] AS [Tutor telefono]
     FROM [dbo].[Ingreso] AS [Ingreso]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Grupo__Plan de E__403A8C7D" Association="Self.FK__Grupo__Plan de E__403A8C7D">
+          <AssociationSet Name="FK__Grupo__Plan de E__65370702" Association="Self.FK__Grupo__Plan de E__65370702">
             <End Role="Carrera" EntitySet="Carrera" />
             <End Role="Grupo" EntitySet="Grupo" />
           </AssociationSet>
@@ -264,6 +269,8 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Tel_Celular" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="Teléfono" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="E_mail" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Plan_de_Estudios" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Activo" Type="Boolean" />
         </EntityType>
         <EntityType Name="bitacora">
@@ -283,7 +290,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           </Key>
           <Property Name="Plan_de_Estudios_Cve" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Plan_de_Estudios" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__Plan_de_E__403A8C7D" FromRole="Carrera" ToRole="Grupo" />
+          <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__Plan_de_E__65370702" FromRole="Carrera" ToRole="Grupo" />
         </EntityType>
         <EntityType Name="Grupo">
           <Key>
@@ -291,7 +298,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           </Key>
           <Property Name="Plan_de_Estudios_Cve" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Carrera" Relationship="Self.FK__Grupo__Plan_de_E__403A8C7D" FromRole="Grupo" ToRole="Carrera" />
+          <NavigationProperty Name="Carrera" Relationship="Self.FK__Grupo__Plan_de_E__65370702" FromRole="Grupo" ToRole="Carrera" />
         </EntityType>
         <EntityType Name="Justificante">
           <Key>
@@ -311,6 +318,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Valor" Type="Int32" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ElaboradoPor" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -333,7 +341,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Segundo_apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Plan_de_Estudios" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Grupo_Referente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Motivo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Motivo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Autoriza" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Parentezco" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Medio_de_Autorizacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
@@ -342,6 +350,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Valor" Type="Int32" Nullable="false" />
           <Property Name="Activo" Type="Boolean" />
           <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ElaboradoPor" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Tutor">
           <Key>
@@ -390,7 +399,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <Property Name="Tutor_correo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="Tutor_telefono" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__Grupo__Plan_de_E__403A8C7D">
+        <Association Name="FK__Grupo__Plan_de_E__65370702">
           <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -414,13 +423,14 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
           <EntitySet Name="Pase_de_salida" EntityType="Self.Pase_de_salida" />
           <EntitySet Name="Tutor" EntityType="Self.Tutor" />
           <EntitySet Name="Ingreso" EntityType="Self.Ingreso" />
-          <AssociationSet Name="FK__Grupo__Plan_de_E__403A8C7D" Association="Self.FK__Grupo__Plan_de_E__403A8C7D">
+          <AssociationSet Name="FK__Grupo__Plan_de_E__65370702" Association="Self.FK__Grupo__Plan_de_E__65370702">
             <End Role="Carrera" EntitySet="Carrera" />
             <End Role="Grupo" EntitySet="Grupo" />
           </AssociationSet>
           <FunctionImport Name="Activar">
             <Parameter Name="identificador" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="copias" />
           <FunctionImport Name="Desactivar">
             <Parameter Name="identificador" Mode="In" Type="String" />
           </FunctionImport>
@@ -499,6 +509,8 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
                 <ScalarProperty Name="Tel_Celular" ColumnName="Tel Celular" />
                 <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
                 <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Plan_de_Estudios" ColumnName="Plan de Estudios" />
+                <ScalarProperty Name="Grupo_Referente" ColumnName="Grupo Referente" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -548,6 +560,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
                 <ScalarProperty Name="Valor" ColumnName="Valor" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="ElaboradoPor" ColumnName="ElaboradoPor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -581,6 +594,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
                 <ScalarProperty Name="Valor" ColumnName="Valor" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="ElaboradoPor" ColumnName="ElaboradoPor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -630,6 +644,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Activar" FunctionName="CONALEPcheckinModel.Store.Activar" />
+          <FunctionImportMapping FunctionImportName="copias" FunctionName="CONALEPcheckinModel.Store.copias" />
           <FunctionImportMapping FunctionImportName="Desactivar" FunctionName="CONALEPcheckinModel.Store.Desactivar" />
           <FunctionImportMapping FunctionImportName="importar" FunctionName="CONALEPcheckinModel.Store.importar" />
           <FunctionImportMapping FunctionImportName="RAJ" FunctionName="CONALEPcheckinModel.Store.RAJ">

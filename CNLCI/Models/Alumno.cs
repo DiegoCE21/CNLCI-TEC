@@ -31,6 +31,8 @@ namespace CNLCI.Models
         public string Tel_Celular { get; set; }
         public string Teléfono { get; set; }
         public string E_mail { get; set; }
+        public string Plan_de_Estudios { get; set; }
+        public string Grupo_Referente { get; set; }
         public Nullable<bool> Activo { get; set; }
     }
 }

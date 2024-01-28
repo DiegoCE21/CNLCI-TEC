@@ -19,18 +19,21 @@ namespace CNLCI
 
         public void ConfigureAuth(IAppBuilder app)
         {
+
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                // Expira después de 60 minutos de inactividad
+
                 ExpireTimeSpan = TimeSpan.FromMinutes(1),
-                // Renueva la cookie en cada solicitud
+
                 SlidingExpiration = true,
-                // Redirige al inicio de sesión si no está autenticado
-                LoginPath = new PathString("/Login/Login")
+
+                LoginPath = new PathString("/Login/Login"),
+
+                CookieSameSite = SameSiteMode.None
             });
 
             app.UseOpenIdConnectAuthentication(
@@ -50,6 +53,7 @@ namespace CNLCI
                         }
                     }
                 });
+
 
         }
 

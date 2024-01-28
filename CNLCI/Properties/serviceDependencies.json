@@ -3,6 +3,9 @@
     "identityapp1": {
       "type": "identityapp",
       "connectionId": null
+    },
+    "office365_1": {
+      "type": "office365_"
     }
   }
 }

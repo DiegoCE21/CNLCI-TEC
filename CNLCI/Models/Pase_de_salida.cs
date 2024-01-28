@@ -30,5 +30,6 @@ namespace CNLCI.Models
         public int Valor { get; set; }
         public Nullable<bool> Activo { get; set; }
         public string Observaciones { get; set; }
+        public string ElaboradoPor { get; set; }
     }
 }
