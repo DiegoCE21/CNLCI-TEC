@@ -8,6 +8,11 @@ namespace CNLCI.Controllers
 {
     public class AccountController : Controller
     {
+
+        public ActionResult Unauthorized()
+        {
+            return View("SignOutCallback");
+        }
         public void SignIn()
         {
             // Enviar una solicitud de inicio de sesión a OpenID Connect.
@@ -35,7 +40,14 @@ namespace CNLCI.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("Login", "Login");
+           // return RedirectToAction("Login", "Login");
+            return RedirectToAction("/", "/");
         }
+
+       
+
+
+
+
     }
 }

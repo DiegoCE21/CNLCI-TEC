@@ -1,7 +1,9 @@
 ﻿using CNLCI.Models;
 using System;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,6 +14,48 @@ namespace CNLCI.Controllers
     {
         public ActionResult Importar()
         { return View(); }
+
+
+        [HttpPost]
+        public ActionResult AgregarUsuario(string correo)
+        {
+            if (string.IsNullOrEmpty(correo))
+            {
+                ModelState.AddModelError("correo", "El correo electrónico es obligatorio");
+                return View("Usuarios"); // Asegúrate de regresar a la vista "Usuarios" si hay un error.
+            }
+
+            try
+            {
+                using (DB db = new DB()) // Asegura que 'DB' es tu contexto de EF correcto.
+                {
+                    var nuevoUsuario = new Usuarios { Correo = correo };
+                    db.Usuarios.Add(nuevoUsuario); // Verifica que 'Usuario' sea el nombre correcto de tu DbSet.
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Home"); // Redirige a la página de inicio u otra página de confirmación.
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Se produjo un error al agregar el usuario: " + ex.Message);
+                return View("Usuarios"); // Regresa a la vista de Usuarios con el mensaje de error.
+            }
+        }
+
+        // Asegúrate de tener un método GET para Usuarios que pueda regresar la vista correctamente.
+        [HttpGet]
+        /*public ActionResult Usuarios()
+        {
+            return View();
+        }*/
+        public ActionResult Usuarios()
+        {
+            using (DB db = new DB()) // Asume que 'DB' es tu contexto de EF.
+            {
+                var listaUsuarios = db.Usuarios.ToList(); // Asume que 'Usuarios' es el DbSet correcto.
+                return View(listaUsuarios); // Pasa la lista de usuarios a la vista.
+            }
+        }
 
 
         [HttpPost]
@@ -67,6 +111,68 @@ namespace CNLCI.Controllers
         }
 
 
+
+
+
+
+
+
+        [HttpGet]
+        public ActionResult EditarUsuario(int id)
+        {
+            using (DB db = new DB())
+            {
+                var usuario = db.Usuarios.Find(id);
+                if (usuario == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuario);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditarUsuario(Usuarios usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                using (DB db = new DB())
+                {
+                    db.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Usuarios");
+                }
+            }
+            return View(usuario);
+        }
+
+        [HttpGet] // Opcional, si quieres una página de confirmación para eliminar.
+        public ActionResult EliminarUsuarioConfirmacion(int id)
+        {
+            using (DB db = new DB())
+            {
+                var usuario = db.Usuarios.Find(id);
+                if (usuario == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuario);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EliminarUsuario(int id)
+        {
+            using (DB db = new DB())
+            {
+                var usuario = db.Usuarios.Find(id);
+                if (usuario != null)
+                {
+                    db.Usuarios.Remove(usuario);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Usuarios");
+            }
+        }
     }
 }
-

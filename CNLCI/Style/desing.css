@@ -15,7 +15,8 @@ select {
 }
 
 body {
-    background-image: linear-gradient(to bottom, #04372d, #ffffff);
+    /*background-image: linear-gradient(to bottom, #1B396A, #ffffff);*/
+    background-color: #ffffff;
     justify-content: center;
     align-items: center;
 }
@@ -50,7 +51,7 @@ body {
 
 /* Estilo específico para los botones generados por ActionLink */
 .button-link {
-    background-color: #166342;
+    background-color: #1B396A;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     font-display: revert;

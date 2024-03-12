@@ -206,6 +206,7 @@
       <Parameter Name="fechaI" Mode="In" Type="DateTime" />
       <Parameter Name="fechaF" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <EntitySet Name="Usuarios" EntityType="CONALEPcheckinModel.Usuarios" />
   </EntityContainer>
   <ComplexType Name="RAJ_Result">
     <Property Type="Int32" Name="Mes" Nullable="true" />
@@ -235,4 +236,11 @@
     <Property Type="Int32" Name="Año" Nullable="true" />
     <Property Type="Int32" Name="Total" Nullable="true" />
   </ComplexType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

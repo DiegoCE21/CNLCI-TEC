@@ -8,13 +8,14 @@
         <EntityTypeShape EntityType="CONALEPcheckinModel.Alumno" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.bitacora" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Carrera" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Grupo" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Grupo" Width="1.5" PointX="3.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Justificante" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CONALEPcheckinModel.Medico" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Medico" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Pase_de_salida" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Tutor" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CONALEPcheckinModel.Ingreso" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="CONALEPcheckinModel.FK__Grupo__Plan_de_E__65370702" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CONALEPcheckinModel.Usuarios" Width="1.5" PointX="9.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

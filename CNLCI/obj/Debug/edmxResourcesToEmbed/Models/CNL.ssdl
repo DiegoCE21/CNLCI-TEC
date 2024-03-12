@@ -151,7 +151,14 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     <Property Name="Tutor correo" Type="varchar" MaxLength="60" />
     <Property Name="Tutor telefono" Type="varchar" MaxLength="14" />
   </EntityType>
-  <Association Name="FK__Grupo__Plan de E__65370702">
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Grupo__Plan de E__5812160E">
     <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
@@ -201,6 +208,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     <EntitySet Name="Medico" EntityType="Self.Medico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pase de salida" EntityType="Self.Pase de salida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tutor" EntityType="Self.Tutor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ingreso" EntityType="Self.Ingreso" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Ingreso].[Matricula] AS [Matricula], 
@@ -233,7 +241,7 @@ advertencia 6002: La tabla o vista 'CONALEPcheckin.dbo.Ingreso' no tiene definid
     [Ingreso].[Tutor telefono] AS [Tutor telefono]
     FROM [dbo].[Ingreso] AS [Ingreso]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__Grupo__Plan de E__65370702" Association="Self.FK__Grupo__Plan de E__65370702">
+    <AssociationSet Name="FK__Grupo__Plan de E__5812160E" Association="Self.FK__Grupo__Plan de E__5812160E">
       <End Role="Carrera" EntitySet="Carrera" />
       <End Role="Grupo" EntitySet="Grupo" />
     </AssociationSet>
