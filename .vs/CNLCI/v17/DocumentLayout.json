@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\CNLCI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|c:\\users\\user\\source\\repos\\cnlci\\cnlci\\controllers\\justificantescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|solutionrelative:cnlci\\controllers\\justificantescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|c:\\users\\user\\source\\repos\\cnlci\\cnlci\\views\\justificantes\\_carrera.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|solutionrelative:cnlci\\views\\justificantes\\_carrera.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|C:\\Users\\User\\source\\repos\\CNLCI\\cnlci\\views\\configuracion\\usuarios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|solutionrelative:cnlci\\views\\configuracion\\usuarios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|c:\\users\\user\\source\\repos\\cnlci\\cnlci\\views\\configuracion\\editarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2430B4DB-19B0-40BD-8A23-CDDE5F883C7D}|CNLCI\\CNLCI.csproj|solutionrelative:cnlci\\views\\configuracion\\editarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JustificantesController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Controllers\\JustificantesController.cs",
+              "RelativeDocumentMoniker": "CNLCI\\Controllers\\JustificantesController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Controllers\\JustificantesController.cs",
+              "RelativeToolTip": "CNLCI\\Controllers\\JustificantesController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAA5wCIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T20:35:47.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Carrera.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Views\\Justificantes\\_Carrera.cshtml",
+              "RelativeDocumentMoniker": "CNLCI\\Views\\Justificantes\\_Carrera.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Views\\Justificantes\\_Carrera.cshtml*",
+              "RelativeToolTip": "CNLCI\\Views\\Justificantes\\_Carrera.cshtml*",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAC4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T20:25:32.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EditarUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Views\\Configuracion\\EditarUsuario.cshtml",
+              "RelativeDocumentMoniker": "CNLCI\\Views\\Configuracion\\EditarUsuario.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Views\\Configuracion\\EditarUsuario.cshtml",
+              "RelativeToolTip": "CNLCI\\Views\\Configuracion\\EditarUsuario.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T15:03:46.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuarios.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Views\\Configuracion\\Usuarios.cshtml",
+              "RelativeDocumentMoniker": "CNLCI\\Views\\Configuracion\\Usuarios.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CNLCI\\CNLCI\\Views\\Configuracion\\Usuarios.cshtml",
+              "RelativeToolTip": "CNLCI\\Views\\Configuracion\\Usuarios.cshtml",
+              "ViewState": "AQIAAB8AAAAgAAAAAIApwCkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T15:01:45.625Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
